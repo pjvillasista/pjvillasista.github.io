@@ -1,48 +1,22 @@
-console.log('Is this working?');
+console.log("I am here!");
 
 let viz;
-
-// Add Share Link to Tableau Public in here
-const url = "https://public.tableau.com/views/BrightFutures/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link";
-
-const vizContainer = document.getElementById('vizContainer');
+const containerDiv = document.getElementById("vizContainer");
+const url = "https://public.tableau.com/views/BrightFutures/Dashboard1";
 const options = {
     hideTabs: true,
-    height: 1080,
-    width: 1920,
-    onFirstInteractive: function() {
-        workbook = viz.getWorkbook();
-        activeSheet = workbook.getActiveSheet();
-        console.log("My dashboard is interactive");
+    height: 800,
+    width: 1000,
+    onFirstInteractive: function () {
+        console.log("Hey, my dashboard is interactive!");
+    },
+    onFirstVizSizeKnown: function () {
+        console.log("Hey, my dashboard has a size!");
     }
 };
 
-// Create a function to generate the viz element
 function initViz() {
-    console.log('Executing the initViz function!');
-    viz = new tableau.Viz(vizContainer, url, options);
+    viz = new tableau.Viz(containerDiv, url, options);
 }
 
-// Run the initViz function when the page loads
 document.addEventListener("DOMContentLoaded", initViz);
-
-const exportPDF = document.getElementById('exportPDF');
-const exportImage = document.getElementById('exportImage');
-
-// Click on the pdf button to generate pdf of dashboard
-function generatePDF() {
-    viz.showExportPDFDialog();
-}
-
-exportPDF.addEventListener("click", function () {
-    generatePDF();
-});
-
-// Click on image to generate image of dashboard
-function generateImage() {
-    viz.showExportImageDialog();
-}
-
-exportImage.addEventListener("click", function () {
-    generateImage();
-});
