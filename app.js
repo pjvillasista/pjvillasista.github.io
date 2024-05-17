@@ -8,9 +8,9 @@ const url = "https://public.tableau.com/views/BrightFutures/Dashboard1?:language
 const vizContainer = document.getElementById('vizContainer');
 const options = {
     hideTabs: true,
-    height: 1000,
-    width: 1200,
-    onFirstInteraction: function() {
+    height: 1080,
+    width: 1920,
+    onFirstInteractive: function() {
         workbook = viz.getWorkbook();
         activeSheet = workbook.getActiveSheet();
         console.log("My dashboard is interactive");
