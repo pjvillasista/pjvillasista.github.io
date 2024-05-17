@@ -4,14 +4,33 @@
     <meta charset="UTF-8">
     <title>Helldivers 2 Tableau Dashboard</title>
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 </head>
 <body>
-    <h1>Helldivers 2 Tableau Dashboard</h1>
-    <p>This project showcases sentiments using Tableau.</p>
-    <div style="width:1920px; height:1080px;">
-        <tableau-viz id="tableauViz" src="https://public.tableau.com/views/Helldivers2ExecutiveSentimentDashboard/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs></tableau-viz>
-    </div>
-    <script src="app.js"></script>
+    <header>
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="header-icons">
+            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/pjvillasista" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+    <nav class="navbar">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <!-- Add other navigation links if needed -->
+    </nav>
+    <main>
+        <div class="container">
+            <h1>Helldivers 2 Tableau Dashboard</h1>
+            <p>This project showcases sentiments using Tableau.</p>
+            <div class="viz-container">
+                <tableau-viz id="tableauViz" src="https://public.tableau.com/views/Helldivers2ExecutiveSentimentDashboard/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs></tableau-viz>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
+    </footer>
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>

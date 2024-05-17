@@ -2,20 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yelp Reviews Algorithm Dashboard</title>
+    <title>Yelp Reviews Algorithm</title>
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 </head>
 <body>
-    <h1>Yelp Reviews Algorithm Dashboard</h1>
-    <p>This project showcases the top business in Philadelphia according to reviews</p>
-    <div style="width:1920px; height:1080px;">
-        <tableau-viz id="tableauViz" src="https://public.tableau.com/views/YelpReviewRugProject/MapDash?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs></tableau-viz>
-    </div>
-    <script src="app.js"></script>
-    <!-- Embedded PowerPoint presentation -->
-    <div style="margin-top: 20px;">
-        <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214264&amp;authkey=!AMcm4tJ6RoBiaZI&amp;em=2&amp;wdAr=1.7777777777777777" width="1920px" height="1080px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
-    </div>
+    <header>
+        <div class="menu-icon"><i class="fas fa-bars"></i></div>
+        <div class="header-icons">
+            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/pjvillasista" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+    <nav class="navbar">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <!-- Add other navigation links if needed -->
+    </nav>
+    <main>
+        <div class="container">
+            <h1>Yelp Reviews Algorithm</h1>
+            <p>This project analyzes U.S. Businesses to identify review trends.</p>
+            <div class="viz-container">
+                <tableau-viz id="tableauViz" src="https://public.tableau.com/views/YelpReviews/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs></tableau-viz>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
+    </footer>
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>
