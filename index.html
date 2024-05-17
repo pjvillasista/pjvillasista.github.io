@@ -2,23 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PJ Villasista's Portfolio</title>
     <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to PJ Villasista's Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="projects/brightfutures.html">BrightFutures Dashboard</a></li>
-                <li><a href="projects/helldivers2.html">Helldivers 2 Dashboard</a></li>
-            </ul>
-        </nav>
+        <h1>PJ's Data Portfolio</h1>
     </header>
     <main>
-        <section>
-            <h2>About Me</h2>
-            <p>I am a Business Intellignce Analyst with a strong focus on analytics engineering. Check out my projects below to see my work.</p>
+        <section id="contact" class="contact-section">
+            <ul class="social-media">
+                <li><a href="https://www.linkedin.com/in/pjvillasista" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/pjvillasista" target="_blank">GitHub</a></li>
+            </ul>
+        </section>
+        <section id="projects" class="projects-section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-featured">
+                    <h3><a href="projects/brightfutures.html">BrightFutures Dashboard</a></h3>
+                    <img src="images/brightfutures.png" alt="BrightFutures Dashboard">
+                    <p><em>A comprehensive dashboard that visualizes data for the BrightFutures initiative.</em></p>
+                </div>
+                <div class="project">
+                    <h3><a href="projects/helldivers2.html">Helldivers 2 Dashboard</a></h3>
+                    <img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard">
+                    <p>A detailed dashboard providing insights for the Helldivers 2 game.</p>
+                </div>
+                <div class="project placeholder">
+                    <h3>Future Project 1</h3>
+                    <img src="assets/images/placeholder.jpg" alt="Future Project">
+                    <p>Placeholder for a future project.</p>
+                </div>
+                <div class="project placeholder">
+                    <h3>Future Project 2</h3>
+                    <img src="assets/images/placeholder.jpg" alt="Future Project">
+                    <p>Placeholder for a future project.</p>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
