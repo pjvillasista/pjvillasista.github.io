@@ -1,11 +1,6 @@
 /* Basic */
 
-@-ms-viewport {
-    width: device-width;
-}
-
 body {
-    -ms-overflow-style: scrollbar;
     text-align: center;
     background-color: #1e252d;
     color: #FFFFFF; /* White text for readability */
@@ -15,17 +10,6 @@ body {
     line-height: 1.75;
     margin: 0;
     padding: 0;
-}
-
-body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-    -moz-animation: none !important;
-    -webkit-animation: none !important;
-    -ms-animation: none !important;
-    animation: none !important;
-    -moz-transition: none !important;
-    -webkit-transition: none !important;
-    -ms-transition: none !important;
-    transition: none !important;
 }
 
 header, main, footer {
@@ -198,13 +182,14 @@ input:focus, select:focus, textarea:focus {
 }
 
 .project-featured {
+    grid-column: span 1;
     text-align: center;
 }
 
 .project-featured img {
     width: 100%;
     height: auto;
-    max-width: 800px;
+    max-width: 1000px; /* Larger size for the featured project */
     margin: 0 auto;
 }
 
@@ -223,15 +208,15 @@ input:focus, select:focus, textarea:focus {
     .projects-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .project-featured {
+        grid-column: span 2; /* Span two columns for the featured project */
+    }
 }
 
 @media screen and (min-width: 1024px) {
     .projects-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .project-featured {
-        grid-column: span 3;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
