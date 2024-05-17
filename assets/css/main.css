@@ -311,7 +311,7 @@ input:focus, select:focus, textarea:focus {
 
 .project-thumbnail {
     width: 100%;
-    max-width: 500px; /* Ensure all project thumbnails are the same width */
+    max-width: 550px; /* Ensure all project thumbnails are the same width */
     height: 300px; /* Ensure all project thumbnails are the same height */
     object-fit: cover; /* Ensure the images cover the area without distortion */
     margin-bottom: 1rem;
