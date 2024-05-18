@@ -83,7 +83,7 @@ header {
     color: #00FFFF; /* Cyan on hover/focus */
 }
 
-.main {
+main {
     padding-top: 80px; /* Add padding to account for the fixed navbar */
     width: 100%;
 }
@@ -276,9 +276,9 @@ input:focus, select:focus, textarea:focus {
 }
 
 .about-image img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+    border-radius: 0%;
+    width: 450px;
+    height: 450px;
     object-fit: cover;
 }
 
@@ -294,7 +294,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .project-featured {
-    grid-column: span 3; /* Span two columns for the featured project */
+    grid-column: span 2; /* Span two columns for the featured project */
     text-align: center;
 }
 
@@ -311,8 +311,8 @@ input:focus, select:focus, textarea:focus {
 
 .project-thumbnail {
     width: 100%;
-    max-width: 550px; /* Ensure all project thumbnails are the same width */
-    height: 300px; /* Ensure all project thumbnails are the same height */
+    max-width: 850px; /* Ensure all project thumbnails are the same width */
+    height: 450px; /* Ensure all project thumbnails are the same height */
     object-fit: cover; /* Ensure the images cover the area without distortion */
     margin-bottom: 1rem;
     border: 1px solid #ffffff; /* Add a border for consistent appearance */
@@ -331,6 +331,10 @@ input:focus, select:focus, textarea:focus {
 @media screen and (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr; /* Stack projects in a single column on smaller screens */
+    }
+
+    .viz-container iframe {
+        height: 500px; /* Adjust iframe height for smaller screens */
     }
 }
 
@@ -373,6 +377,10 @@ input:focus, select:focus, textarea:focus {
 
     .about-image {
         margin-top: 1rem;
+    }
+
+    .viz-container iframe {
+        height: 400px; /* Adjust iframe height for very small screens */
     }
 }
 
