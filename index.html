@@ -6,6 +6,20 @@
     <title>PJ's Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        .project-thumbnail {
+            transition: transform 0.3s ease-in-out;
+        }
+        .project-thumbnail:hover {
+            transform: scale(1.05);
+        }
+        .project-title {
+            transition: color 0.3s ease-in-out;
+        }
+        .project-title:hover {
+            color: #00FFFF; /* Change to cyan on hover */
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <header class="flex items-center justify-between p-4">
@@ -20,7 +34,7 @@
         <div class="close-btn absolute top-4 right-4 text-2xl cursor-pointer"><i class='bx bx-x'></i></div>
         <a href="index.html" class="text-lg hover:text-cyan-500"><i class='bx bx-home'></i> Home</a>
         <a href="projects/brightfutures.html" class="text-lg hover:text-cyan-500"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a>
-        <a href="projects/helldiver2.html" class="text-lg hover:text-cyan-500"><i class='bx bx-game'></i> Helldivers 2 Dashboard</a>
+        <a href="projects/helldivers2.html" class="text-lg hover:text-cyan-500"><i class='bx bx-game'></i> Helldivers 2 Dashboard</a>
         <a href="projects/montrealcrime.html" class="text-lg hover:text-cyan-500"><i class='bx bx-user-secret'></i> Montreal Crime Dashboard</a>
         <a href="projects/yelpreviews.html" class="text-lg hover:text-cyan-500"><i class='bx bx-briefcase'></i> Yelp Reviews Algorithm</a>
     </nav>
@@ -48,41 +62,38 @@
                 <h2 class="text-4xl font-bold mb-5">Projects</h2>
                 <div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                     <div class="project-featured col-span-2 text-center">
-                        <h3 class="text-2xl font-bold mb-2"><a href="projects/brightfutures.html">BrightFutures Dashboard</a></h3>
-                        <img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-4">
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html">BrightFutures Dashboard</a></h3>
+                        <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-4"></a>
                         <p class="italic mb-2">A comprehensive dashboard that visualizes data for the BrightFutures initiative.</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2"><a href="projects/helldivers2.html">Helldivers 2 Dashboard</a></h3>
-                        <img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html">Helldivers 2 Dashboard</a></h3>
+                        <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
                         <p class="italic mb-2">A detailed dashboard providing insights for the Helldivers 2 game.</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2"><a href="projects/montrealcrime.html">Montreal Crime Analysis</a></h3>
-                        <img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html">Montreal Crime Analysis</a></h3>
+                        <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
                         <p class="italic mb-2">Analyzed Montreal's crime data. Awarded "Best Presentation"</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2"><a href="projects/yelpreviews.html">Yelp Reviews Algorithm</a></h3>
-                        <img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html">Yelp Reviews Algorithm</a></h3>
+                        <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
                         <p class="italic mb-2">Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2">Strava Run Analytics</h3>
-                        <img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html">Strava Run Analytics</a></h3>
+                        <a href="#"><img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
                         <p class="italic">Placeholder for a future project.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="bg-gray-800 py-4 text-center mt-8">
-        <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
-    </footer>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>
