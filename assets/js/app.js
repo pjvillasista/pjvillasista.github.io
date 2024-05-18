@@ -4,10 +4,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const navbar = document.querySelector(".navbar");
 
     menuIcon.addEventListener("click", function() {
-        navbar.style.transform = "translateX(0)";
+        navbar.classList.add("translate-x-0");
+        navbar.classList.remove("-translate-x-full");
     });
 
     closeBtn.addEventListener("click", function() {
-        navbar.style.transform = "translateX(-250px)";
+        navbar.classList.add("-translate-x-full");
+        navbar.classList.remove("translate-x-0");
     });
 });

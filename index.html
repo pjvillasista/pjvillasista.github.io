@@ -4,85 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PJ's Portfolio</title>
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <h1>PJ's Data Portfolio</h1>
-        <div class="header-icons">
-            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/pjvillasista" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
+<body class="bg-gray-900 text-white font-sans">
+    <header class="flex items-center justify-between p-4">
+        <div class="menu-icon text-2xl cursor-pointer"><i class='bx bx-menu'></i></div>
+        <h1 class="text-6xl font-bold">PJ's Data Portfolio</h1>
+        <div class="header-icons flex space-x-4">
+            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/pjvillasista" target="_blank" class="text-xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
         </div>
     </header>
-    <main>
+    <nav class="navbar fixed top-0 left-0 h-full w-64 bg-gray-800 transform -translate-x-full transition-transform duration-300 z-50 flex flex-col items-center pt-20 space-y-4">
+        <div class="close-btn absolute top-4 right-4 text-2xl cursor-pointer"><i class='bx bx-x'></i></div>
+        <a href="index.html" class="text-lg hover:text-cyan-500"><i class='bx bx-home'></i> Home</a>
+        <a href="projects/brightfutures.html" class="text-lg hover:text-cyan-500"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a>
+        <a href="projects/helldiver2.html" class="text-lg hover:text-cyan-500"><i class='bx bx-game'></i> Helldivers 2 Dashboard</a>
+        <a href="projects/montrealcrime.html" class="text-lg hover:text-cyan-500"><i class='bx bx-user-secret'></i> Montreal Crime Dashboard</a>
+        <a href="projects/yelpreviews.html" class="text-lg hover:text-cyan-500"><i class='bx bx-briefcase'></i> Yelp Reviews Algorithm</a>
+    </nav>
+    <main class="pt-20 px-4">
         <section id="about" class="aboutme-section">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>About Me</h2>
-                        <blockquote>
-                            <p><em>"The biggest risk is not taking any risk... In a world that is changing really quickly, the only strategy that is guaranteed to fail is not taking risks." — Mark Zuckerberg</em></p>
+            <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+                <div class="about-content flex flex-wrap items-center justify-between">
+                    <div class="about-text flex-1 mr-4">
+                        <h2 class="text-4xl font-bold mb-5">About Me</h2>
+                        <blockquote class="mb-4">
+                            <p class="italic"><em>"The biggest risk is not taking any risk... In a world that is changing really quickly, the only strategy that is guaranteed to fail is not taking risks." — Mark Zuckerberg</em></p>
                         </blockquote>
-                        <p>I am a Business Intelligence Analyst with a strong passion in analytics engineering.</p>
-                        <p>I am a massive data nerd with extensive experience solving business problems in marketing and finance with data analytics and a 2x data hackathon winner.</p>
-                        <p>When not "working," I am building my own projects ranging from automating my everyday life, or solving problems for others through data analysis. I am also mentoring others in the field of data, from working on their personal brands on LinkedIn, to teaching them skills in data analytics like Python, SQL, and Tableau.</p>
+                        <p class="mb-4">I am a Business Intelligence Analyst with a strong passion in analytics engineering.</p>
+                        <p class="mb-4">I am a massive data nerd with extensive experience solving business problems in marketing and finance with data analytics and a 2x data hackathon winner.</p>
+                        <p class="mb-4">When not "working," I am building my own projects ranging from automating my everyday life, or solving problems for others through data analysis. I am also mentoring others in the field of data, from working on their personal brands on LinkedIn, to teaching them skills in data analytics like Python, SQL, and Tableau.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="/images/headshot.jpg" alt="PJ Villasista" class="headshot">
+                    <div class="about-image flex-shrink-0 mt-4">
+                        <img src="/images/headshot.jpg" alt="PJ Villasista" class="w-40 h-40 rounded-full object-cover">
                     </div>
                 </div>
-                <!-- <div class="about-footer">
-                    <ul class="social-media">
-                        <li><a href="https://www.linkedin.com/in/pjvillasista" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="https://github.com/pjvillasista" target="_blank"><i class="fab fa-github"></i></a></li>
-                    </ul>
-                </div> -->
             </div>
         </section>
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-featured">
-                        <h3><a href="projects/brightfutures.html">BrightFutures Dashboard</a></h3>
-                        <img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail">
-                        <p><em>A comprehensive dashboard that visualizes data for the BrightFutures initiative.</em></p>
-                        <p><em>📚 Tech Stack: Python, SQL, Tableau</em></p>
+        <section id="projects" class="projects-section mt-8">
+            <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+                <h2 class="text-4xl font-bold mb-5">Projects</h2>
+                <div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+                    <div class="project-featured col-span-2 text-center">
+                        <h3 class="text-2xl font-bold mb-2"><a href="projects/brightfutures.html">BrightFutures Dashboard</a></h3>
+                        <img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-4">
+                        <p class="italic mb-2">A comprehensive dashboard that visualizes data for the BrightFutures initiative.</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
-                    <div class="project">
-                        <h3><a href="projects/helldivers2.html">Helldivers 2 Dashboard</a></h3>
-                        <img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail">
-                        <p><em>A detailed dashboard providing insights for the Helldivers 2 game.</em></p>
-                        <p><em>📚 Tech Stack: Python, SQL, Tableau</em></p>
+                    <div class="project text-center">
+                        <h3 class="text-2xl font-bold mb-2"><a href="projects/helldivers2.html">Helldivers 2 Dashboard</a></h3>
+                        <img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <p class="italic mb-2">A detailed dashboard providing insights for the Helldivers 2 game.</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
-                    <div class="project">
-                        <h3><a href="projects/montrealcrime.html">Montreal Crime Analysis</a></h3>
-                        <img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail">
-                        <p><em>Analyzed Montreal's crime data. Awarded "Best Presentation"</em></p>
-                        <p><em>📚 Tech Stack: Python, SQL, Tableau</em></p>
+                    <div class="project text-center">
+                        <h3 class="text-2xl font-bold mb-2"><a href="projects/montrealcrime.html">Montreal Crime Analysis</a></h3>
+                        <img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <p class="italic mb-2">Analyzed Montreal's crime data. Awarded "Best Presentation"</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
-                    <div class="project">
-                        <h3><a href="projects/yelpreviews.html">Yelp Reviews Algorithm</a></h3>
-                        <img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail">
-                        <p><em>Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</em></p>
-                        <p><em>📚 Tech Stack: Python, SQL, Tableau</em></p>
+                    <div class="project text-center">
+                        <h3 class="text-2xl font-bold mb-2"><a href="projects/yelpreviews.html">Yelp Reviews Algorithm</a></h3>
+                        <img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <p class="italic mb-2">Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
-                    <div class="project">
-                        <h3>Strava Run Analytics</h3>
-                        <img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail">
-                        <p>Placeholder for a future project.</p>
+                    <div class="project text-center">
+                        <h3 class="text-2xl font-bold mb-2">Strava Run Analytics</h3>
+                        <img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-64 object-cover mb-4">
+                        <p class="italic">Placeholder for a future project.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
+    <footer class="bg-gray-800 py-4 text-center mt-8">
         <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
     </footer>
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>

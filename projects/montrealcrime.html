@@ -3,41 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Montreal Crime Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 </head>
-<body>
-    <header>
-        <div class="menu-icon"><i class="fas fa-bars"></i></div>
-        <div class="header-icons">
-            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/pjvillasista" target="_blank"><i class="fab fa-github"></i></a>
+<body class="bg-gray-900 text-white font-sans">
+    <header class="flex items-center justify-between p-4">
+        <div class="menu-icon text-2xl cursor-pointer"><i class='bx bx-menu'></i></div>
+        <div class="header-icons flex space-x-4">
+            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/pjvillasista" target="_blank" class="text-xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
         </div>
     </header>
-    <nav class="navbar">
-        <div class="close-btn"><i class="fas fa-times"></i></div>
-        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-        <a href="brightfutures.html"><i class="fas fa-graduation-cap"></i> BrightFutures Dashboard</a>
-        <a href="helldivers2.html"><i class="fas fa-gamepad"></i> Helldivers 2 Dashboard</a>
-        <a href="montrealcrime.html"><i class="fas fa-user-secret"></i> Montreal Crime Dashboard</a>
-        <a href="yelpreviews.html"><i class="fas fa-briefcase"></i> Yelp Reviews Algorithm</a>
+    <nav class="navbar fixed top-0 left-0 h-full w-64 bg-gray-800 transform -translate-x-full transition-transform duration-300 z-50 flex flex-col items-center pt-20 space-y-4">
+        <div class="close-btn absolute top-4 right-4 text-2xl cursor-pointer"><i class='bx bx-x'></i></div>
+        <a href="../index.html" class="text-lg hover:text-cyan-500"><i class='bx bx-home'></i> Home</a>
+        <a href="brightfutures.html" class="text-lg hover:text-cyan-500"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a>
+        <a href="helldivers2.html" class="text-lg hover:text-cyan-500"><i class='bx bx-game'></i> Helldivers 2 Dashboard</a>
+        <a href="montrealcrime.html" class="text-lg hover:text-cyan-500"><i class='bx bx-user-secret'></i> Montreal Crime Dashboard</a>
+        <a href="yelpreviews.html" class="text-lg hover:text-cyan-500"><i class='bx bx-briefcase'></i> Yelp Reviews Algorithm</a>
     </nav>
-    <main>
-        <div class="container">
-            <h1>Montreal Crime Dashboard</h1>
-            <p>This project explores the crime trends in Montreal from 2015-2021.</p>
-            <div class="viz-container">
-                <tableau-viz id="tableauViz" src="https://public.tableau.com/views/MontrealCrime_16816170161350/MasterDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs></tableau-viz>
+    <main class="pt-20 px-4">
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-4">Montreal Crime Dashboard</h1>
+            <p class="mb-4">This project explores the crime trends in Montreal from 2015-2021.</p>
+            <div class="viz-container w-full overflow-hidden bg-gray-700 rounded-lg shadow-md">
+                <tableau-viz id="tableauViz" src="https://public.tableau.com/views/MontrealCrime_16816170161350/MasterDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs class="w-full h-full"></tableau-viz>
             </div>
-            <div style="margin-top: 20px;">
-                <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214266&amp;authkey=!ADFxd1tVHQzwK2g&amp;em=2&amp;wdAr=1.7777777777777777" width="1920px" height="1080px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+            <div class="mt-4">
+                <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214266&amp;authkey=!ADFxd1tVHQzwK2g&amp;em=2&amp;wdAr=1.7777777777777777" class="w-full h-full" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
             </div>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
-    </footer>
     <script src="../assets/js/app.js"></script>
 </body>
 </html>
