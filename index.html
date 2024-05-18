@@ -12,7 +12,7 @@
         }
         .project-thumbnail:hover {
             transform: scale(1.02);
-        }
+    }
         .project-title {
             transition: color 0.3s ease-in-out;
         }
@@ -32,9 +32,9 @@
         <div class="menu-icon text-2xl cursor-pointer"><i class='bx bx-menu'></i></div>
         <h1 class="text-6xl font-bold">PJ's Data Portfolio</h1>
         <div class="header-icons flex space-x-4">
-            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-3xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://github.com/pjvillasista" target="_blank" class="text-3xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
-            <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-3xl hover:text-gray-500"><i class='bx bxs-inbox'></i></a>
+            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
+            <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxs-inbox'></i></a>
         </div>
     </header>
     <nav class="navbar fixed top-0 left-0 h-full w-64 bg-gray-800 transform -translate-x-full transition-transform duration-300 z-50 flex flex-col items-center pt-20 space-y-4">
@@ -51,7 +51,7 @@
             <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
                 <div class="about-content flex flex-wrap items-center justify-between">
                     <div class="about-text flex-1 mr-4">
-                        <h2 class="text-4xl font-bold mb-5">About Me</h2>
+                        <h2 class="text-4xl font-extrabold mb-5">About Me</h2>
                         <blockquote class="mb-4">
                             <p class="italic"><em>"The biggest risk is not taking any risk... In a world that is changing really quickly, the only strategy that is guaranteed to fail is not taking risks." — Mark Zuckerberg</em></p>
                         </blockquote>
@@ -67,45 +67,42 @@
         </section>
         <section id="projects" class="projects-section mt-8">
             <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-                <h2 class="text-4xl font-bold mb-5">Projects</h2>
+                <h2 class="text-4xl font-extrabold mb-5">Projects</h2>
                 <div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                     <div class="project-featured col-span-2 text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a></h3>
                         <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-2"></a>
-                        <p class="italic mb-1">A comprehensive dashboard that visualizes data for the BrightFutures initiative.</p>
-                        <p class="italic">📚 Tech Stack: Snowflake, dbt, Airflow, Python, SQL, Tableau</p>
+                        <p class="italic font-bold">📚 Tech Stack: Snowflake, dbt, Airflow, Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Led the creation of a data-driven school selection tool for Southern California. Utilized Python, Snowflake, and Tableau to automate data collection, transformation, and visualization, providing detailed educational insights for informed decisions.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html"><i class='bx bxs-game'></i> Helldivers 2 Dashboard</a></h3>
                         <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic mb-1">A detailed dashboard providing insights for the Helldivers 2 game.</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Developed a comprehensive analytics tool using Python, BERTopic, and Tableau. Analyzed Steam feedback to identify and categorize gameplay issues, enhancing game performance and player satisfaction for indie developers.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html"><i class='bx bxs-group'></i> Montreal Crime Analysis</a></h3>
                         <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic mb-1">Analyzed Montreal's crime data. Awarded "Best Presentation"</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Analyzed Montreal crime data using SQL and Python. Enhanced location data and visualized patterns with Tableau, guiding law enforcement strategies and city planning with data-driven insights.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html"><i class='bx bxs-briefcase'></i> Yelp Reviews Algorithm</a></h3>
                         <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic mb-1">Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Built a Yelp review analysis tool with Python and Tableau. Conducted sentiment analysis and developed a business ranking algorithm, delivering a dynamic dashboard to highlight top-rated businesses based on multiple metrics.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html"><i class='bx bx-run'></i> Strava Run Analytics</a></h3>
                         <a href="projects/strava.html"><img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
-                        <p class="italic mb-1">Analyzed data about my runs to identify weak points and to help me prepare for a marthon.</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Analyzed data about my runs to identify weak points and to help me prepare for a marathon.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="bg-gray-800 py-4 text-center mt-8">
-        <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
-    </footer>
     <script src="./assets/js/app.js"></script>
 </body>
 </html>
