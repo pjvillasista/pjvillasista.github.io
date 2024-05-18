@@ -11,7 +11,7 @@
             transition: transform 0.3s ease-in-out;
         }
         .project-thumbnail:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
         .project-title {
             transition: color 0.3s ease-in-out;
@@ -33,10 +33,11 @@
     <nav class="navbar fixed top-0 left-0 h-full w-64 bg-gray-800 transform -translate-x-full transition-transform duration-300 z-50 flex flex-col items-center pt-20 space-y-4">
         <div class="close-btn absolute top-4 right-4 text-2xl cursor-pointer"><i class='bx bx-x'></i></div>
         <a href="index.html" class="text-lg hover:text-cyan-500"><i class='bx bx-home'></i> Home</a>
-        <a href="projects/brightfutures.html" class="text-lg hover:text-cyan-500"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a>
-        <a href="projects/helldivers2.html" class="text-lg hover:text-cyan-500"><i class='bx bx-game'></i> Helldivers 2 Dashboard</a>
-        <a href="projects/montrealcrime.html" class="text-lg hover:text-cyan-500"><i class='bx bx-user-secret'></i> Montreal Crime Dashboard</a>
-        <a href="projects/yelpreviews.html" class="text-lg hover:text-cyan-500"><i class='bx bx-briefcase'></i> Yelp Reviews Algorithm</a>
+        <a href="projects/brightfutures.html" class="text-lg hover:text-cyan-500"><i class='bx bxs-graduation'></i> BrightFutures</a>
+        <a href="projects/helldivers2.html" class="text-lg hover:text-cyan-500"><i class='bx bx-game'></i> Helldivers 2</a>
+        <a href="projects/montrealcrime.html" class="text-lg hover:text-cyan-500"><i class='bx bx-group'></i> Montreal Dashboard</a>
+        <a href="projects/yelpreviews.html" class="text-lg hover:text-cyan-500"><i class='bx bx-briefcase'></i> Yelp Algorithm</a>
+        <a href="projects/strava.html" class="text-lg hover:text-cyan-500"><i class='bx bx-run'></i> Strava Dashboard</a>
     </nav>
     <main class="pt-20 px-4">
         <section id="about" class="aboutme-section">
@@ -62,32 +63,32 @@
                 <h2 class="text-4xl font-bold mb-5">Projects</h2>
                 <div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                     <div class="project-featured col-span-2 text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html">BrightFutures Dashboard</a></h3>
-                        <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-4"></a>
-                        <p class="italic mb-2">A comprehensive dashboard that visualizes data for the BrightFutures initiative.</p>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a></h3>
+                        <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-2"></a>
+                        <p class="italic mb-1">A comprehensive dashboard that visualizes data for the BrightFutures initiative.</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html">Helldivers 2 Dashboard</a></h3>
-                        <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
-                        <p class="italic mb-2">A detailed dashboard providing insights for the Helldivers 2 game.</p>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html"><i class='bx bxs-game'></i> Helldivers 2 Dashboard</a></h3>
+                        <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-64 object-cover mb-2"></a>
+                        <p class="italic mb-1">A detailed dashboard providing insights for the Helldivers 2 game.</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html">Montreal Crime Analysis</a></h3>
-                        <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
-                        <p class="italic mb-2">Analyzed Montreal's crime data. Awarded "Best Presentation"</p>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html"><i class='bx bxs-group'></i> Montreal Crime Analysis</a></h3>
+                        <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-64 object-cover mb-2"></a>
+                        <p class="italic mb-1">Analyzed Montreal's crime data. Awarded "Best Presentation"</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html">Yelp Reviews Algorithm</a></h3>
-                        <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
-                        <p class="italic mb-2">Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</p>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html"><i class='bx bxs-briefcase'></i> Yelp Reviews Algorithm</a></h3>
+                        <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-64 object-cover mb-2"></a>
+                        <p class="italic mb-1">Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</p>
                         <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html">Strava Run Analytics</a></h3>
-                        <a href="#"><img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html"><i class='bx bx-run'></i> Strava Run Analytics</a></h3>
+                        <a href="projects/strava.html"><img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-64 object-cover mb-4"></a>
                         <p class="italic">Placeholder for a future project.</p>
                     </div>
                 </div>
