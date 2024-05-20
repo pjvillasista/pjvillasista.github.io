@@ -8,7 +8,21 @@
     <title>PJ's Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/lulo-clean" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'Avenir Light';
+            src: url('https://path-to-avenir-light.woff2') format('woff2'),
+                 url('https://path-to-avenir-light.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Avenir Light', sans-serif;
+        }
+        .title-font {
+            font-family: 'Lulo Clean', sans-serif;
+        }
         .project-thumbnail {
             transition: transform 0.3s ease-in-out;
         }
@@ -114,26 +128,26 @@
                     <div class="project-featured col-span-2 text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a></h3>
                         <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-2"></a>
-                        <p class="italic mb-1">A comprehensive dashboard that visualizes data for the BrightFutures initiative.</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Developed a data-driven dashboard to streamline school selection in Southern California using Python, Snowflake, and Tableau. Enhanced data interpretation for informed educational choices, leveraging web scraping and interactive visualizations.                        </p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html"><i class='bx bxs-game'></i> Helldivers 2 Dashboard</a></h3>
                         <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic mb-1">A detailed dashboard providing insights for the Helldivers 2 game.</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Created an analytics tool to improve Helldivers 2 gameplay by analyzing Steam player feedback. Used Python and Tableau for sentiment analysis and visualizations, addressing server performance and content variety issues for better player experience.                        </p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html"><i class='bx bxs-group'></i> Montreal Crime Analysis</a></h3>
                         <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic mb-1">Analyzed Montreal's crime data. Awarded "Best Presentation"</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Analyzed Montreal crime data with SQL, Python, and Tableau. Created interactive dashboards to inform law enforcement and city planning. Enhanced data quality and collaboration, identifying crime patterns and seasonal trends.                        </p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html"><i class='bx bxs-briefcase'></i> Yelp Reviews Algorithm</a></h3>
                         <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic mb-1">Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</p>
-                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
+                        <p class="italic mb-1">Developed an interactive Yelp business ranking dashboard using Python and Tableau. Applied sentiment analysis and linear regression to rank businesses, visualizing insights to highlight top performers based on reviews and ratings.                        </p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html"><i class='bx bx-run'></i> Strava Run Analytics</a></h3>
@@ -144,9 +158,7 @@
             </div>
         </section>
     </main>
-    <footer class="bg-gray-800 py-4 text-center mt-8">
-        <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
-    </footer>
+
     <script>
         document.querySelector('.menu-icon').addEventListener('click', function() {
             document.querySelector('.navbar').classList.toggle('-translate-x-full');
