@@ -1,3 +1,5 @@
+/* Sticky Navbar resource:https://flowbite.com/docs/components/navbar/ */
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
         }
         .project-thumbnail:hover {
             transform: scale(1.02);
-    }
+        }
         .project-title {
             transition: color 0.3s ease-in-out;
         }
@@ -25,33 +27,73 @@
         .navbar a:hover {
             color: #00FFFF; /* Change to cyan on hover */
         }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f2937;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown:hover .dropbtn {
+            color: #00FFFF;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
-    <header class="flex items-center justify-between p-4">
-        <div class="menu-icon text-2xl cursor-pointer"><i class='bx bx-menu'></i></div>
-        <h1 class="text-6xl font-bold">PJ's Data Portfolio</h1>
-        <div class="header-icons flex space-x-4">
-            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
-            <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxs-inbox'></i></a>
+    <nav class="bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="../index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-white">PJ's Portfolio</span>
+            </a>
+            <div class="flex md:order-2 space-x-6 rtl:space-x-reverse">
+                <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
+                <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxs-inbox'></i></a>
+                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800 dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700">
+                    <li>
+                        <a href="../index.html" class="block py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500 md:p-0 dark:text-white md:dark:hover:text-cyan-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                    </li>
+                    <li class="dropdown relative">
+                        <a href="#" class="flex items-center py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500 md:p-0 dark:text-white md:dark:hover:text-cyan-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dropbtn">Projects <i class='bx bxs-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="/projects/brightfutures.html">BrightFutures</a>
+                            <a href="/projects/helldivers2.html">Helldivers 2</a>
+                            <a href="/projects/montrealcrime.html">Montreal Crime</a>
+                            <a href="/projects/yelpreviews.html">Yelp Reviews</a>
+                            <a href="/projects/strava.html">Strava Dashboard</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
-    <nav class="navbar fixed top-0 left-0 h-full w-64 bg-gray-800 transform -translate-x-full transition-transform duration-300 z-50 flex flex-col items-center pt-20 space-y-4">
-        <div class="close-btn absolute top-4 right-4 text-2xl cursor-pointer"><i class='bx bx-x'></i></div>
-        <a href="../index.html" class="text-lg flex items-center space-x-2 hover:text-cyan-500"><i class='bx bx-home'></i> <span>Home</span></a>
-        <a href="/projects/brightfutures.html" class="text-lg flex items-center space-x-2 hover:text-cyan-500"><i class='bx bxs-graduation'></i> <span>BrightFutures</span></a>
-        <a href="/projects/helldivers2.html" class="text-lg flex items-center space-x-2 hover:text-cyan-500"><i class='bx bx-game'></i> <span>Helldivers 2</span></a>
-        <a href="/projects/montrealcrime.html" class="text-lg flex items-center space-x-2 hover:text-cyan-500"><i class='bx bx-group'></i> <span>Montreal Dashboard</span></a>
-        <a href="/projects/yelpreviews.html" class="text-lg flex items-center space-x-2 hover:text-cyan-500"><i class='bx bx-briefcase'></i> <span>Yelp Algorithm</span></a>
-        <a href="/projects/strava.html" class="text-lg flex items-center space-x-2 hover:text-cyan-500"><i class='bx bx-run'></i> <span>Strava Dashboard</span></a>
     </nav>
-    <main class="pt-20 px-4">
+    <main class="pt-20 px-4 mt-16">
         <section id="about" class="aboutme-section">
             <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
                 <div class="about-content flex flex-wrap items-center justify-between">
                     <div class="about-text flex-1 mr-4">
-                        <h2 class="text-4xl font-extrabold mb-5">About Me</h2>
+                        <h2 class="text-4xl font-bold mb-5">About Me</h2>
                         <blockquote class="mb-4">
                             <p class="italic"><em>"The biggest risk is not taking any risk... In a world that is changing really quickly, the only strategy that is guaranteed to fail is not taking risks." — Mark Zuckerberg</em></p>
                         </blockquote>
@@ -67,42 +109,52 @@
         </section>
         <section id="projects" class="projects-section mt-8">
             <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-                <h2 class="text-4xl font-extrabold mb-5">Projects</h2>
+                <h2 class="text-4xl font-bold mb-5">Projects</h2>
                 <div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                     <div class="project-featured col-span-2 text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a></h3>
                         <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-2"></a>
-                        <p class="italic font-bold">📚 Tech Stack: Snowflake, dbt, Airflow, Python, SQL, Tableau</p>
-                        <p class="italic mb-1">Led the creation of a data-driven school selection tool for Southern California. Utilized Python, Snowflake, and Tableau to automate data collection, transformation, and visualization, providing detailed educational insights for informed decisions.</p>
+                        <p class="italic mb-1">A comprehensive dashboard that visualizes data for the BrightFutures initiative.</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html"><i class='bx bxs-game'></i> Helldivers 2 Dashboard</a></h3>
                         <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
-                        <p class="italic mb-1">Developed a comprehensive analytics tool using Python, BERTopic, and Tableau. Analyzed Steam feedback to identify and categorize gameplay issues, enhancing game performance and player satisfaction for indie developers.</p>
+                        <p class="italic mb-1">A detailed dashboard providing insights for the Helldivers 2 game.</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html"><i class='bx bxs-group'></i> Montreal Crime Analysis</a></h3>
                         <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
-                        <p class="italic mb-1">Analyzed Montreal crime data using SQL and Python. Enhanced location data and visualized patterns with Tableau, guiding law enforcement strategies and city planning with data-driven insights.</p>
+                        <p class="italic mb-1">Analyzed Montreal's crime data. Awarded "Best Presentation"</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html"><i class='bx bxs-briefcase'></i> Yelp Reviews Algorithm</a></h3>
                         <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
-                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
-                        <p class="italic mb-1">Built a Yelp review analysis tool with Python and Tableau. Conducted sentiment analysis and developed a business ranking algorithm, delivering a dynamic dashboard to highlight top-rated businesses based on multiple metrics.</p>
+                        <p class="italic mb-1">Analyzed U.S Businesses to identify review trends. Awarded "Best Visualization"</p>
+                        <p class="italic">📚 Tech Stack: Python, SQL, Tableau</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html"><i class='bx bx-run'></i> Strava Run Analytics</a></h3>
                         <a href="projects/strava.html"><img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
-                        <p class="italic font-bold">📚 Tech Stack: Python, SQL, Tableau</p>
-                        <p class="italic mb-1">Analyzed data about my runs to identify weak points and to help me prepare for a marathon.</p>
+                        <p class="italic">Placeholder for a future project.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <script src="./assets/js/app.js"></script>
+    <footer class="bg-gray-800 py-4 text-center mt-8">
+        <p>&copy; 2024 PJ Villasista. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('-translate-x-full');
+        });
+
+        document.querySelector('.close-btn').addEventListener('click', function() {
+            document.querySelector('.navbar').classList.toggle('-translate-x-full');
+        });
+    </script>
 </body>
 </html>
