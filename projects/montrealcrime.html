@@ -12,16 +12,17 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 100%; /* Adjust based on header and footer height */
             background-color: #1e252d;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem; /* Added spacing between containers */
         }
         .viz-container {
             width: 100%;
-            height: 100%;
             max-width: 1920px;
-            max-height: 1080px;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            justify-content: center;
         }
         .viz-container iframe, .viz-container tableau-viz {
             width: 100%;
@@ -105,19 +106,21 @@
     <main class="pt-20 px-4">
         <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
             <h1 class="text-4xl font-bold mb-4">Montreal Crime Dashboard</h1>
-            <p class="mb-4">This project explores the crime trends in Montreal from 2015-2021.</p>
+            <p class="mb-4">This project explored crime trends in Montreal from 2015-2021, using data cleaning, enrichment, and interactive visualizations to inform law enforcement and city planning.            </p>
             <div class="viz-wrapper">
                 <div class="viz-container">
                     <tableau-viz id="tableauViz" src="https://public.tableau.com/views/MontrealCrime_16816170161350/MasterDashboard?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs></tableau-viz>
                 </div>
             </div>
-            <div class="mt-8 viz-wrapper">
-                <div class="viz-container">
-                    <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214266&amp;authkey=!ADFxd1tVHQzwK2g&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+            <div>
+                <h2 class="text-4xl font-bold mb-4">Presentation</h2>
+                <div class="viz-wrapper">
+                    <div class="viz-container">
+                        <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214266&amp;authkey=!ADFxd1tVHQzwK2g&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
     <script src="../assets/js/app.js"></script>
 </body>
-</html>
