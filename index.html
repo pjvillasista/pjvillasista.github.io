@@ -6,7 +6,14 @@
     <title>PJ's Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Source Serif Pro', serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+        }
         .max-w-screen-xl {
             max-width: 1280px;
         }
@@ -35,9 +42,11 @@
             display: none;
             position: absolute;
             background-color: #1f2937;
-            min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
+            grid-template-columns: 1fr 1fr; /* Create two columns */
+            gap: 10px; /* Space between items */
+            padding: 10px; /* Padding around items */
         }
         .dropdown-content a {
             color: white;
@@ -49,7 +58,7 @@
             background-color: #00ffff30;
         }
         .dropdown:hover .dropdown-content {
-            display: block;
+            display: grid;
         }
         .dropdown:hover .dropbtn {
             color: #00FFFF;
@@ -82,10 +91,11 @@
                         <a href="#" class="flex items-center py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500 dropbtn">Projects <i class='bx bxs-chevron-down'></i></a>
                         <div class="dropdown-content">
                             <a href="/projects/brightfutures.html">BrightFutures</a>
-                            <a href="/projects/helldivers2.html">Helldivers 2</a>
-                            <a href="/projects/montrealcrime.html">Montreal Crime</a>
                             <a href="/projects/yelpreviews.html">Yelp Reviews</a>
+                            <a href="/projects/helldivers2.html">Helldivers 2</a>
                             <a href="/projects/strava.html">Strava Dashboard</a>
+                            <a href="/projects/montrealcrime.html">Montreal Crime</a>
+                            <a href="/projects/FMA_dashboard.html">FMA Dashboard</a>
                         </div>
                     </li>
                 </ul>
@@ -93,7 +103,8 @@
         </div>
     </nav>
     <main class="pt-20 px-4">
-        <section id="about" class="aboutme-section">
+
+        <section id="about" class="aboutme-section mt-8">
             <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
                 <div class="about-content flex flex-wrap items-center justify-between">
                     <div class="about-text flex-1 mr-4">
@@ -105,44 +116,90 @@
                         <p class="mb-4">I am a massive data nerd with extensive experience solving business problems in marketing and finance with data analytics and a 2x data hackathon winner.</p>
                         <p class="mb-4">When not "working," I am building my own projects ranging from automating my everyday life, or solving problems for others through data analysis. I am also mentoring others in the field of data, from working on their personal brands on LinkedIn, to teaching them skills in data analytics like Python, SQL, and Tableau.</p>
                     </div>
-                    <div class="about-image flex-shrink-0 mt-4">
-                        <img src="/images/headshot.jpg" alt="PJ Villasista" class="w-40 h-40 rounded-full object-cover">
+                    <div class="about-image flex-shrink-0 mt-4 overflow-hidden w-60 h-60">
+                        <img src="/images/headshot.jpg" alt="PJ Villasista" class="w-full h-full rounded-full object-cover">
                     </div>
                 </div>
             </div>
         </section>
+
+        
+        <section id="skills-education" class="skills-education-section mt-8">
+            <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/2 px-4">
+                        <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
+                            <div class="text-center mb-6">
+                                <i class='bx bx-analyse text-3xl text-cyan-500'></i>
+                                <h2 class="text-4xl font-bold mt-4">Skills</h2>
+                            </div>
+                            <ul class="list-disc list-inside ml-8">
+                                <li>Data Analytics</li>
+                                <li>SQL</li>
+                                <li>Microsoft Excel</li>
+                                <li>Python</li>
+                                <li>Tableau</li>
+                                <li>GCP / AWS / Snowflake</li>
+                                <li>Git/Github</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 px-4">
+                        <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
+                            <div class="text-center mb-6">
+                                <i class='bx bx-briefcase text-4xl text-cyan-500'></i>
+                                <h2 class="text-4xl font-bold mt-4">Education</h2>
+                            </div>
+                            <ul class="list-disc list-inside ml-8">
+                                <li>Google Data Analytics Certificate - Coursera</li>
+                                <li>BA Economics, Minor Finance - CSULB</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+      
         <section id="projects" class="projects-section mt-8">
             <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
                 <h2 class="text-4xl font-bold mb-5">Projects</h2>
                 <div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                     <div class="project-featured col-span-2 text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html"><i class='bx bxs-graduation'></i> BrightFutures Dashboard</a></h3>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html"> BrightFutures Dashboard</a></h3>
                         <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Developed a data-driven dashboard to streamline school selection in Southern California using Python, Snowflake, and Tableau. Enhanced data interpretation for informed educational choices, leveraging web scraping and interactive visualizations.</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html"><i class='bx bxs-game'></i> Helldivers 2 Dashboard</a></h3>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html"> Helldivers 2 Dashboard</a></h3>
                         <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Created an analytics tool to improve Helldivers 2 gameplay by analyzing Steam player feedback. Used Python and Tableau for sentiment analysis and visualizations, addressing server performance and content variety issues for better player experience.</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html"><i class='bx bxs-group'></i> Montreal Crime Analysis</a></h3>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html"> Montreal Crime Analysis</a></h3>
                         <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Analyzed Montreal crime data with SQL, Python, and Tableau. Created interactive dashboards to inform law enforcement and city planning. Enhanced data quality and collaboration, identifying crime patterns and seasonal trends.</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html"><i class='bx bxs-briefcase'></i> Yelp Reviews Algorithm</a></h3>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html"> Yelp Reviews Algorithm</a></h3>
                         <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Developed an interactive Yelp business ranking dashboard using Python and Tableau. Applied sentiment analysis and linear regression to rank businesses, visualizing insights to highlight top performers based on reviews and ratings.</p>
                     </div>
                     <div class="project text-center">
-                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html"><i class='bx bx-run'></i> Strava Run Analytics</a></h3>
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html"> Strava Run Analytics</a></h3>
                         <a href="projects/strava.html"><img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
+                        <p class="font-semibold">📚 Tech Stack: Python, Tableau</p>
                         <p class="italic">This project aims to assist in marathon preparation by tracking runs and displaying locational data. It provides in-depth, granular analysis with second-by-second data on elevation, pace, and other metrics.                        </p>
+                    </div>
+                    <div class="project text-center">
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/FMA_dashboard.html"> FMA Marketing Dashboard</a></h3>
+                        <a href="projects/FMA_dashboard.html"><img src="/images/FMA.png" alt="FMA Marketing Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
+                        <p class="font-semibold">📚 Tech Stack: Python, Excel, Tableau</p>
+                        <p class="italic">This project enhanced the Instagram strategy for the Financial Management Association by analyzing engagement data, identifying key trends, and developing a targeted content strategy.</p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,59 @@
+body {
+    font-family: 'Source Serif Pro', serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+}
+.viz-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #1e252d;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.viz-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.viz-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.navbar a {
+    transition: color 0.3s ease-in-out;
+}
+.navbar a:hover {
+    color: #00FFFF; /* Change to cyan on hover */
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1f2937;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #00ffff30;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    color: #00FFFF;
+}

@@ -6,76 +6,18 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
-    <style>
-        .viz-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%; /* Adjust based on header and footer height */
-            background-color: #1e252d;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .viz-container {
-            width: 100%;
-            height: 100%;
-            max-width: 1920px;
-            max-height: 1080px;
-        }
-        .viz-container iframe, .viz-container tableau-viz {
-            width: 100%;
-            height: 100%;
-        }
-        .navbar a {
-            transition: color 0.3s ease-in-out;
-        }
-        .navbar a:hover {
-            color: #00FFFF; /* Change to cyan on hover */
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #1f2937;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-content a:hover {
-            background-color: #575757;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown:hover .dropbtn {
-            color: #00FFFF;
-        }
-    </style>
+    <link href="../assets/css/project_styles.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white font-sans">
-    <header class="flex items-center justify-between p-4">
-        <div class="menu-icon text-2xl cursor-pointer"><i class='bx bx-menu'></i></div>
-        <div class="header-icons flex space-x-4">
-            <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
-            <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
-            <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxs-inbox'></i></a>
-        </div>
-    </header>
-    <nav class="bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-700">
+    <nav class="bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-700 shadow-lg">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="../index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-bold whitespace-nowrap dark:text-white">PJ's Portfolio</span>
+            <a href="../index.html" class="flex items-center space-x-3">
+                <span class="self-center text-2xl font-bold text-white">PJ's Portfolio</span>
             </a>
-            <div class="flex md:order-2 space-x-6 rtl:space-x-reverse">
+            <div class="flex md:order-2 space-x-3">
                 <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxl-github'></i></a>
-                <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-gray-500"><i class='bx bxs-inbox'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-github'></i></a>
+                <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxs-inbox'></i></a>
                 <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -84,18 +26,19 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-700 rounded-lg bg-gray-800 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-gray-800 dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-800">
                     <li>
-                        <a href="../index.html" class="block py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500 md:p-0 dark:text-white md:dark:hover:text-cyan-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                        <a href="../index.html" class="block py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500">Home</a>
                     </li>
                     <li class="dropdown relative">
-                        <a href="#" class="flex items-center py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500 md:p-0 dark:text-white md:dark:hover:text-cyan-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dropbtn">Projects <i class='bx bxs-chevron-down'></i></a>
+                        <a href="#" class="flex items-center py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500 dropbtn">Projects <i class='bx bxs-chevron-down'></i></a>
                         <div class="dropdown-content">
                             <a href="/projects/brightfutures.html">BrightFutures</a>
                             <a href="/projects/helldivers2.html">Helldivers 2</a>
                             <a href="/projects/montrealcrime.html">Montreal Crime</a>
                             <a href="/projects/yelpreviews.html">Yelp Reviews</a>
                             <a href="/projects/strava.html">Strava Dashboard</a>
+                            <a href="/projects/FMA_dashboard.html">FMA Dashboard</a>
                         </div>
                     </li>
                 </ul>
@@ -103,14 +46,58 @@
         </div>
     </nav>
     <main class="pt-20 px-4">
-        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
             <h1 class="text-4xl font-bold mb-4">Helldivers 2 Tableau Dashboard</h1>
             <p class="mb-4">This project created an analytics tool to enhance the gameplay experience of Helldivers 2 by analyzing player feedback from Steam, identifying key issues, and visualizing insights for developers.            </p>
             <div class="viz-wrapper">
                 <div class="viz-container">
-                    <tableau-viz id="tableauViz" src="https://public.tableau.com/views/Helldivers2ExecutiveSentimentDashboard/Dashboard1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link" toolbar="bottom" hide-tabs></tableau-viz>
+                    <iframe src="https://public.tableau.com/views/Helldivers2ExecutiveSentimentDashboard/Dashboard1?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
                 </div>
             </div>
+        </div>
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <h1 class="text-4xl font-bold mb-8">About The Project</h1>
+            <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
+            <p class="mb-4">Since the launch of Helldivers 2, the game has experienced various performance issues, crashes, and connectivity problems reported by players on Steam. The challenge was to develop a tool that could help the development team at Arrowhead Studios identify and address these issues efficiently to maintain high player satisfaction and engagement.</p>
+
+            <h2 class="text-3xl font-bold mb-4">The Approach</h2>
+            <div class="pl-6">
+                <p class="mb-4">1. <strong>Filterable Dates:</strong> Implemented a feature to view issues from specific periods, helping pinpoint when certain problems started and track improvements over time.</p>
+                <p class="mb-4">2. <strong>Sentiment Analysis:</strong> Analyzed the sentiment of user reviews and feedback to highlight overall player mood and satisfaction, crucial for maintaining a positive community.</p>
+                <p class="mb-4">3. <strong>Issue Categorization:</strong> Categorized issues into crashes, connectivity problems, content issues, and community interactions to provide targeted insights for developers.</p>
+                <p class="mb-4">4. <strong>Data Integration and Visualization:</strong> Used Python for scripting, data scraping, and calling the Steamworks API to gather real-time data and feedback. Employed Tableau for visualizing data and insights, enabling the team to make informed decisions quickly.</p>
+                <p class="mb-4">5. <strong>Automation with Apache Airflow:</strong> Utilized Apache Airflow for scheduling tasks, ensuring consistent data collection and analysis every week to keep the feedback loop current and relevant.</p>
+            </div>
+
+            <h2 class="text-3xl font-bold mb-4">The Outcome</h2>
+            <p class="mb-4">The project resulted in a comprehensive analytics tool that provides real-time insights into player feedback and performance issues for Helldivers 2. The development team at Arrowhead Studios can now swiftly identify and address issues, significantly improving the overall gaming experience.</p>
+
+            <h2 class="text-3xl font-bold mb-4">Users Can:</h2>
+            <div class="pl-6">
+                <ul class="list-disc list-inside mb-4">
+                    <li>Filter issues by specific periods to track the origin and improvements of problems.</li>
+                    <li>View sentiment analysis of user reviews to gauge overall player satisfaction.</li>
+                    <li>Identify and categorize issues such as crashes, connectivity problems, and content feedback.</li>
+                    <li>Access real-time data and insights through interactive visualizations.</li>
+                </ul>
+            </div>
+            <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+            <div class="pl-6">
+                <ul class="list-disc list-inside mb-4">
+                    <li><strong>Filterable Dates:</strong> Allows the team to view issues from specific periods, helping pinpoint when certain problems started and track improvements over time.</li>
+                    <li><strong>Sentiment Analysis:</strong> Analyzes the sentiment of user reviews and feedback, highlighting overall player mood and satisfaction.</li>
+                    <li><strong>Issue Categorization:</strong> Categorizes issues into crashes, connectivity problems, content feedback, and community interactions.</li>
+                    <li><strong>Data Integration and Visualization:</strong> Uses Python for scripting, data scraping, and calling the Steamworks API. Employs Tableau for data visualization.</li>
+                    <li><strong>Automation with Apache Airflow:</strong> Utilizes Apache Airflow for scheduling tasks, ensuring consistent data collection and analysis.</li>
+                </ul>
+            </div>
+            <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
+            <ul class="list-disc list-inside mb-4">
+                <li><strong>Python:</strong> For scripting, data scraping, and calling the Steamworks API.</li>
+                <li><strong>BERTopic:</strong> For topical modeling to identify the top topics in user feedback.</li>
+                <li><strong>Tableau:</strong> For data visualization.</li>
+                <li><strong>Apache Airflow:</strong> For scheduling tasks and automating data collection and analysis.</li>
+            </ul>
         </div>
     </main>
     <script src="../assets/js/app.js"></script>
