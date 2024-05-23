@@ -44,9 +44,10 @@
             background-color: #1f2937;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
-            grid-template-columns: 1fr 1fr; /* Create two columns */
+            grid-template-columns: 1fr 1fr 1fr; /* Create two columns */
             gap: 10px; /* Space between items */
             padding: 10px; /* Padding around items */
+            font-family: 'Source Serif Pro', serif;
         }
         .dropdown-content a {
             color: white;
@@ -96,6 +97,7 @@
                             <a href="/projects/strava.html">Strava Dashboard</a>
                             <a href="/projects/montrealcrime.html">Montreal Crime</a>
                             <a href="/projects/FMA_dashboard.html">FMA Dashboard</a>
+                            <a href="/projects/ga_session.html">Google Analytics</a>
                         </div>
                     </li>
                 </ul>
@@ -117,7 +119,7 @@
                         <p class="mb-4">When not "working," I am building my own projects ranging from automating my everyday life, or solving problems for others through data analysis. I am also mentoring others in the field of data, from working on their personal brands on LinkedIn, to teaching them skills in data analytics like Python, SQL, and Tableau.</p>
                     </div>
                     <div class="about-image flex-shrink-0 mt-4 overflow-hidden w-60 h-60">
-                        <img src="/images/headshot.jpg" alt="PJ Villasista" class="w-full h-full rounded-full object-cover">
+                        <img src="/images/thumbnail/headshot.jpg" alt="PJ Villasista" class="w-full h-full rounded-full object-cover">
                     </div>
                 </div>
             </div>
@@ -167,39 +169,45 @@
                 <div class="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                     <div class="project-featured col-span-2 text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/brightfutures.html"> BrightFutures Dashboard</a></h3>
-                        <a href="projects/brightfutures.html"><img src="/images/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-2"></a>
+                        <a href="projects/brightfutures.html"><img src="/images/thumbnail/brightfutures.png" alt="BrightFutures Dashboard" class="project-thumbnail w-full h-auto mx-auto mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Developed a data-driven dashboard to streamline school selection in Southern California using Python, Snowflake, and Tableau. Enhanced data interpretation for informed educational choices, leveraging web scraping and interactive visualizations.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html"> Helldivers 2 Dashboard</a></h3>
-                        <a href="projects/helldivers2.html"><img src="/images/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
+                        <a href="projects/helldivers2.html"><img src="/images/thumbnail/helldivers2.png" alt="Helldivers 2 Dashboard" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Created an analytics tool to improve Helldivers 2 gameplay by analyzing Steam player feedback. Used Python and Tableau for sentiment analysis and visualizations, addressing server performance and content variety issues for better player experience.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html"> Montreal Crime Analysis</a></h3>
-                        <a href="projects/montrealcrime.html"><img src="/images/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
+                        <a href="projects/montrealcrime.html"><img src="/images/thumbnail/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Analyzed Montreal crime data with SQL, Python, and Tableau. Created interactive dashboards to inform law enforcement and city planning. Enhanced data quality and collaboration, identifying crime patterns and seasonal trends.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html"> Yelp Reviews Algorithm</a></h3>
-                        <a href="projects/yelpreviews.html"><img src="/images/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
+                        <a href="projects/yelpreviews.html"><img src="/images/thumbnail/yelpreviews.png" alt="Yelp Reviews Algorithm" class="project-thumbnail w-full h-72 object-cover mb-2"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                         <p class="italic mb-1">Developed an interactive Yelp business ranking dashboard using Python and Tableau. Applied sentiment analysis and linear regression to rank businesses, visualizing insights to highlight top performers based on reviews and ratings.</p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html"> Strava Run Analytics</a></h3>
-                        <a href="projects/strava.html"><img src="/images/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
+                        <a href="projects/strava.html"><img src="/images/thumbnail/strava.png" alt="Strava Run Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, Tableau</p>
                         <p class="italic">This project aims to assist in marathon preparation by tracking runs and displaying locational data. It provides in-depth, granular analysis with second-by-second data on elevation, pace, and other metrics.                        </p>
                     </div>
                     <div class="project text-center">
                         <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/FMA_dashboard.html"> FMA Marketing Dashboard</a></h3>
-                        <a href="projects/FMA_dashboard.html"><img src="/images/FMA.png" alt="FMA Marketing Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
+                        <a href="projects/FMA_dashboard.html"><img src="/images/thumbnail/FMA.png" alt="FMA Marketing Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
                         <p class="font-semibold">📚 Tech Stack: Python, Excel, Tableau</p>
-                        <p class="italic">This project enhanced the Instagram strategy for the Financial Management Association by analyzing engagement data, identifying key trends, and developing a targeted content strategy.</p>
+                        <p class="italic">This project enhances FMA's Instagram strategy by analyzing data with Python and visualizing trends using Tableau. It identifies engagement patterns, optimal posting times, and content preferences, boosting reach and engagement.</p>
+                    </div>
+                    <div class="project text-center">
+                        <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/ga_session.html"> Google Analytics Session</a></h3>
+                        <a href="projects/ga_session.html"><img src="/images/thumbnail/googleanalytics.png" alt="FMA Marketing Analytics" class="project-thumbnail w-full h-72 object-cover mb-4"></a>
+                        <p class="font-semibold">📚 Tech Stack: BigQuery, SQL</p>
+                        <p class="italic">This project analyzes Google Analytics data to provide insights into user behavior, website performance, and marketing effectiveness using SQL queries. Key analyses include transactions per device, bounce rates, product pageviews, and revenue per session.</p>
                     </div>
                 </div>
             </div>

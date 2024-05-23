@@ -14,4 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             navbar.classList.toggle("-translate-x-full");
         });
     }
+
+    // Initialize highlight.js
+    hljs.highlightAll();
 });

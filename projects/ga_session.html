@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Analytics Data Analytics</title>
+    <meta name="description" content="Explore the BrightFutures project - a data-driven dashboard to streamline school selection in Southern California. Leveraging web scraping, cloud data warehousing, and interactive visualizations.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/css/project_styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <nav class="bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-700 shadow-lg">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="../index.html" class="flex items-center space-x-3">
+                <span class="self-center text-2xl font-bold text-white">PJ's Portfolio</span>
+            </a>
+            <div class="flex md:order-2 space-x-3">
+                <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-github'></i></a>
+                <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxs-inbox'></i></a>
+                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-800">
+                    <li>
+                        <a href="../index.html" class="block py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500">Home</a>
+                    </li>
+                    <li class="dropdown relative">
+                        <a href="#" class="flex items-center py-2 px-3 text-white hover:bg-gray-700 rounded md:hover:bg-transparent md:hover:text-cyan-500 dropbtn">Projects <i class='bx bxs-chevron-down'></i></a>
+                        <div class="dropdown-content">
+                            <a href="/projects/brightfutures.html">BrightFutures</a>
+                            <a href="/projects/helldivers2.html">Helldivers 2</a>
+                            <a href="/projects/montrealcrime.html">Montreal Crime</a>
+                            <a href="/projects/yelpreviews.html">Yelp Reviews</a>
+                            <a href="/projects/strava.html">Strava Dashboard</a>
+                            <a href="/projects/FMA_dashboard.html">FMA Dashboard</a>
+                            <a href="/projects/ga_session.html">Google Analytics</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-20 px-4">
+
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <h1 class="text-4xl font-bold mb-8">Google Analytics Data Analysis</h1>
+            
+            <h2 class="text-3xl font-bold mb-4">The Context</h2>
+            <p class="mb-4">The Google Merchandise Store sells Google branded merchandise. The data is typical of what you would see for an ecommerce website.</p>
+            
+            <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
+            <p class="mb-4">Our goal is to analyze the Google Analytics data to answer several key questions that can provide insights into user behavior, website performance, and marketing effectiveness. The questions we aim to answer are:</p>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li class="mb-2">What is the total number of transactions generated per device browser in July 2017?</li>
+                <li class="mb-2">What is the real bounce rate per traffic source?</li>
+                <li class="mb-2">What was the average number of product pageviews for users who made a purchase in July 2017?</li>
+                <li class="mb-2">What was the average number of product pageviews for users who did not make a purchase in July 2017?</li>
+                <li class="mb-2">What was the average total transactions per user that made a purchase in July 2017?</li>
+                <li class="mb-2">What is the average amount of money spent per session in July 2017?</li>
+                <li class="mb-2">What is the sequence of pages viewed?</li>
+            </ul>
+        
+            <h2 class="text-3xl font-bold mb-4">The Approach</h2>
+            <p>We will use SQL queries to extract and analyze the relevant data from the Google Analytics dataset. The dataset contains information about user interactions, device details, traffic sources, and transaction data. Each query will be designed to answer one of the specific questions listed above.</p>
+            
+        </div>        
+
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <br>
+            <h2 class="text-xl font-bold mb-2">1. Total Number of Transactions Generated per Device Browser</h2>
+            <pre><code class="language-sql">SELECT
+    device.browser AS browser,
+    COUNT(totals.transactions) AS total_transactions
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+WHERE
+    _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+    AND totals.transactions IS NOT NULL
+GROUP BY
+    device.browser
+ORDER BY
+    total_transactions DESC;</code></pre>
+    
+            <table>
+                <tr>
+                    <th>Browser</th>
+                    <th>Total Transactions</th>
+                </tr>
+                <tr>
+                    <td>Chrome</td>
+                    <td>944</td>
+                </tr>
+                <tr>
+                    <td>Safari</td>
+                    <td>65</td>
+                </tr>
+                <tr>
+                    <td>Firefox</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Internet Explorer</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Edge</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Opera</td>
+                    <td>1</td>
+                </tr>
+            </table>
+
+            <h2 class="text-xl font-bold">Insights</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Chrome is the dominant browser, generating the majority of transactions (944), followed by Safari with 65 transactions.</li>
+                <li>Browsers like Firefox, Internet Explorer, Edge, and Opera contribute minimally to transactions.</li>
+            </ul>
+            <h2 class="text-xl font-bold">Actions</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Optimize Website for Chrome and Safari: Ensure the website performs optimally on these browsers to maintain and potentially increase transaction volume.</li>
+                <li>Cross-Browser Testing: Regularly test the website on other browsers like Firefox, Internet Explorer, Edge, and Opera to identify and fix any issues that might be hindering transactions.</li>
+            </ul>
+        </div>
+
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <br>
+            <h2 class="text-xl font-bold mb-2">2. Real Bounce Rate per Traffic Source</h2>
+            <pre><code class="language-sql">SELECT
+    trafficSource.source AS traffic_source,
+    COUNTIF(totals.pageviews = 1) / COUNT(*) AS real_bounce_rate
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+WHERE
+    _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+GROUP BY
+    traffic_source
+ORDER BY
+    real_bounce_rate DESC;</code></pre>
+    
+            <table>
+                <tr>
+                    <th>Traffic Source</th>
+                    <th>Real Bounce Rate</th>
+                </tr>
+                <tr>
+                    <td>es.search.yahoo.com</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>github.com</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>mx.search.yahoo.com</td>
+                    <td>1</td>
+                </tr>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+            </table>
+
+            <h2 class="text-xl font-bold">Insights</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>There are many traffic sources with a 100% bounce rate, meaning all visitors from these sources leave the site after viewing only one page.</li>
+                <li>A high bounce rate indicates a mismatch between visitor expectations and the content they land on, leading to immediate exits.</li>
+            </ul>
+            <h2 class="text-xl font-bold">Actions</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Landing Page Optimization: Review and improve landing pages for the traffic sources with high bounce rates to make them more engaging and relevant.</li>
+                <li>Targeted Content Creation: Develop content that matches the interests of visitors coming from specific high-bounce-rate sources to reduce the bounce rate and increase engagement.</li>
+            </ul>
+        </div>
+        
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <br>
+            <h2 class="text-xl font-bold mb-2">3. Average Number of Product Pageviews for Users Who Made a Purchase</h2>
+            <pre><code class="language-sql">SELECT
+    AVG(totals.pageviews) AS avg_product_pageviews
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+WHERE
+    _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+    AND totals.transactions IS NOT NULL;</code></pre>
+            <table>
+                <tr>
+                    <th>Average Product Pageviews</th>
+                </tr>
+                <tr>
+                    <td>25.92</td>
+                </tr>
+            </table>
+
+            
+            <h2 class="text-xl font-bold">Insights</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Users who made a purchase viewed an average of 25.92 product pages, indicating a thorough browsing and consideration process before making a purchase.</li>
+            </ul>
+            <h2 class="text-xl font-bold">Actions</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Enhance Product Discovery: Ensure the product discovery process is seamless, with features like search filters, categories, and related product suggestions to encourage browsing.</li>
+                <li>Personalized Recommendations: Implement personalized product recommendations based on user behavior and preferences to help users find products of interest more efficiently.</li>
+            </ul>
+
+        </div>
+
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <br>
+            <h2 class="text-xl font-bold mb-2">4. Average Number of Product Pageviews for Users Who Did Not Make a Purchase</h2>
+            <pre><code class="language-sql">SELECT
+    AVG(totals.pageviews) AS avg_product_pageviews
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+WHERE
+    _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+    AND totals.transactions IS NULL;</code></pre>
+            <table>
+                <tr>
+                    <th>Average Product Pageviews</th>
+                </tr>
+                <tr>
+                    <td>3.45</td>
+                </tr>
+            </table>
+
+            <h2 class="text-xl font-bold">Insights</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Users who did not make a purchase viewed an average of 3.45 product pages, suggesting they may not have found what they were looking for or were not sufficiently engaged.</li>
+            </ul>
+            <h2 class="text-xl font-bold">Actions</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Improve Product Information: Ensure that product pages are informative, visually appealing, and provide all necessary details to aid decision-making.</li>
+                <li>Retargeting Campaigns: Use retargeting strategies to bring back users who viewed a few pages but did not make a purchase, offering incentives or reminders.</li>
+            </ul>
+        </div>
+
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <br>
+            <h2 class="text-xl font-bold mb-2">5. Average Number of Product Pageviews for Users That Made a Purchase</h2>
+            <pre><code class="language-sql">SELECT
+    AVG(totals.transactions) AS avg_transactions_per_user
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+WHERE
+    _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+    AND totals.transactions IS NOT NULL;</code></pre>
+            <table>
+                <tr>
+                    <th>Average Transactions per User</th>
+                </tr>
+                <tr>
+                    <td>1.04</td>
+                </tr>
+            </table>
+
+            <h2 class="text-xl font-bold">Insights</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>The average transactions per user who made a purchase is approximately 1.04, indicating that most users make only one transaction per session.</li>
+            </ul>
+            <h2 class="text-xl font-bold">Actions</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Encourage Repeat Purchases: Implement loyalty programs or incentives for repeat purchases to increase the average number of transactions per user.</li>
+                <li>Upselling and Cross-Selling: Use upselling and cross-selling techniques during the purchase process to encourage users to buy more items.</li>
+            </ul>
+        </div>
+
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <br>
+            <h2 class="text-xl font-bold mb-2">6. Average Amount of Money Spent per Session</h2>
+            <pre><code class="language-sql">SELECT
+    AVG(totals.transactionRevenue) / 1000000 AS avg_revenue_per_session
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`
+WHERE
+    _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+    AND totals.transactionRevenue IS NOT NULL;</code></pre>
+    
+            <table>
+                <tr>
+                    <th>Average Revenue per Session</th>
+                </tr>
+                <tr>
+                    <td>120.76</td>
+                </tr>
+            </table>
+
+            <h2 class="text-xl font-bold">Insights</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>The average amount of money spent per session is $120.76, indicating a healthy average order value.</li>
+            </ul>
+            <h2 class="text-xl font-bold">Actions</h2>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>Promotional Strategies: Develop promotional strategies that can increase the average order value, such as offering discounts on higher-value purchases or bundling products.</li>
+                <li>Enhanced User Experience: Improve the overall user experience to encourage users to add more items to their cart, thus increasing the average revenue per session.</li>
+            </ul>
+        </div>
+
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <br>
+            <h2 class="text-xl font-bold mb-2">7. Sequence of Pages Viewed</h2>
+            <br>
+            <h2 class="text-sm font-bold mb-2">A. Create a Temporary Table</h2>
+            <pre><code class="language-sql">-- Create a temporary table with the initial data
+CREATE TEMP TABLE temp_ga_sessions AS
+SELECT
+    fullVisitorId,
+    visitId,
+    visitStartTime,
+    hits.page.pagePath AS page_path,
+    hits.hitNumber AS hit_number
+FROM
+    `bigquery-public-data.google_analytics_sample.ga_sessions_*`,
+    UNNEST(hits) AS hits
+WHERE
+    _TABLE_SUFFIX BETWEEN '20170701' AND '20170731'
+ORDER BY
+    fullVisitorId,
+    visitStartTime,
+    hit_number;</code></pre>
+            
+            <br>
+            <h2 class="text-sm font-bold mb-2">B. Top Landing Pages</h2>
+            <pre><code class="language-sql">-- Find the top landing pages
+SELECT
+    page_path,
+    COUNT(*) AS session_count
+FROM
+    temp_ga_sessions
+WHERE
+    hit_number = 1
+GROUP BY
+    page_path
+ORDER BY
+    session_count DESC
+LIMIT 5;</code></pre>
+            <table>
+                <tr>
+                    <th>Top Landing Pages</th>
+                    <th>Session Count</th>
+                </tr>
+                <tr>
+                    <td>/home</td>
+                    <td>34,883</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/shop+by+brand/youtube</td>
+                    <td>17,300</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/apparel/mens/mens+t+shirts</td>
+                    <td>2,967</td>
+                </tr>
+                <tr>
+                    <td>/signin.html</td>
+                    <td>1,473</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/apparel</td>
+                    <td>932</td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+            </table>
+            <strong>Insights</strong>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>The home page and YouTube brand page are the most frequent landing pages, indicating their importance in attracting visitors.</li>
+                <li>Pages like the men's apparel section and the sign-in page also see significant initial traffic, highlighting their relevance to users.</li>
+                <li>Optimizing these landing pages for speed, clarity, and engaging content can enhance the user experience and increase conversions.</li>
+            </ul>
+            
+            <br>
+            <h2 class="text-sm font-bold mb-2">C. Top Exit Pages</h2>
+            <pre><code class="language-sql">-- Find the top exit pages
+WITH last_hits AS (
+    SELECT
+        fullVisitorId,
+        visitId,
+        MAX(hit_number) AS last_hit_number
+    FROM
+        temp_ga_sessions
+    GROUP BY
+        fullVisitorId,
+        visitId
+)
+SELECT
+    s.page_path,
+    COUNT(*) AS session_count
+FROM
+    temp_ga_sessions s
+JOIN
+    last_hits lh
+ON
+    s.fullVisitorId = lh.fullVisitorId
+    AND s.visitId = lh.visitId
+    AND s.hit_number = lh.last_hit_number
+GROUP BY
+    s.page_path
+ORDER BY
+    session_count DESC
+LIMIT 5;</code></pre>
+            <table>
+                <tr>
+                    <th>Top Exit Pages</th>
+                    <th>Session Count</th>
+                </tr>
+                <tr>
+                    <td>/home</td>
+                    <td>23,210</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/shop+by+brand/youtube</td>
+                    <td>12,747</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/apparel/mens/mens+t+shirts</td>
+                    <td>2,760</td>
+                </tr>
+                <tr>
+                    <td>/asearch.html</td>
+                    <td>2,044</td>
+                </tr>
+                <tr>
+                    <td>/basket.html</td>
+                    <td>1,905</td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+            </table>
+            <strong>Insights:</strong>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>The home page is the most common exit page, suggesting users might not find what they are looking for or complete their journey successfully.</li>
+                <li>High exits from the YouTube brand page and the men's apparel section indicate potential areas for improvement in user experience or product offerings.</li>
+                <li>Addressing issues on high exit pages, such as improving content relevance and navigation, can reduce bounce rates and retain users longer.</li>
+            </ul>
+            
+            <br>
+            <h2 class="text-sm font-bold mb-2">D. Common Navigation Paths</h2>
+            <pre><code class="language-sql">-- Find the most common navigation paths
+WITH paths AS (
+    SELECT
+        fullVisitorId,
+        visitId,
+        STRING_AGG(page_path, ' -> ' ORDER BY hit_number) AS navigation_path
+    FROM
+        temp_ga_sessions
+    GROUP BY
+        fullVisitorId,
+        visitId
+)
+SELECT
+    navigation_path,
+    COUNT(*) AS path_count
+FROM
+    paths
+GROUP BY
+    navigation_path
+ORDER BY
+    path_count DESC
+LIMIT 5;</code></pre>
+
+            <table>
+                <tr>
+                    <th>Common Navigation Paths</th>
+                    <th>Path Count</th>
+                </tr>
+                <tr>
+                    <td>/home</td>
+                    <td>15,761</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/shop+by+brand/youtube</td>
+                    <td>10,701</td>
+                </tr>
+                <tr>
+                    <td>/home -> /home</td>
+                    <td>2,763</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/apparel/mens/mens+t+shirts</td>
+                    <td>1,389</td>
+                </tr>
+                <tr>
+                    <td>/google+redesign/shop+by+brand/youtube -> /home</td>
+                    <td>609</td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                    <td>...</td>
+                </tr>
+            </table>
+
+            <strong>Insights:</strong>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>The most common navigation paths indicate that users frequently revisit the home page, suggesting potential navigation issues or lack of clear direction.</li>
+                <li>The YouTube brand page appears frequently in navigation paths, highlighting its popularity and the need to optimize this page for conversions.</li>
+                <li>Simplifying navigation and providing clear pathways to key actions can enhance user experience and reduce redundant page visits.</li>
+            </ul>
+            
+            <br>
+            <h2 class="text-sm font-bold mb-2">E. Average Hits per Session</h2>
+            <pre><code class="language-sql">-- Calculate the average number of hits per session
+SELECT
+    AVG(hit_count) AS average_hits_per_session
+FROM (
+    SELECT
+        fullVisitorId,
+        visitId,
+        COUNT(*) AS hit_count
+    FROM
+        temp_ga_sessions
+    GROUP BY
+        fullVisitorId,
+        visitId);</code></pre>
+            <table>
+                <tr>
+                    <th>Average Hits per Session</th>
+                </tr>
+                <tr>
+                    <td>4.53</td>
+                </tr>
+            </table>
+            <strong>Insights:</strong>
+            <ul class="list-disc list-inside mb-4 pl-6">
+                <li>With an average of 4.53 hits per session, users show moderate engagement with the website content.</li>
+                <li>Increasing the number of hits per session can be achieved by adding engaging content, interactive elements, and personalized recommendations.</li>
+                <li>Monitoring changes in this metric over time can help evaluate the effectiveness of engagement strategies and website improvements.</li>
+            </ul>
+            
+            <br>
+            <h2 class="text-xl font-bold mb-2">Insights and Recommendations</h2>
+            <p class="mb-2">
+                The analysis provides several key insights:
+                <ul class="list-disc list-inside mb-4 pl-6">
+                    <li>Optimize the home and YouTube brand pages for better user engagement and conversion.</li>
+                    <li>Investigate and improve high exit pages, particularly the home page and basket page.</li>
+                    <li>Streamline user navigation to reduce revisits to the home page.</li>
+                    <li>Enhance user engagement by adding interactive elements and improving content quality.</li>
+                    <li>Implement data-driven strategies to personalize user experiences and improve conversion rates.</li>
+                </ul>
+            </p>
+        </div>
+       
+    </main>
+    <script src="../assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
