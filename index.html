@@ -65,6 +65,29 @@
         .dropdown:hover .dropbtn {
             color: #00FFFF;
         }
+        .tabs {
+            border-bottom: 1px solid #4b5563; /* Gray border color */
+        }
+        .tabs button {
+            color: #9ca3af; /* Text gray color */
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            padding: 10px 20px;
+            transition: all 0.3s;
+        }
+        .tabs button:hover,
+        .tabs button[aria-selected="true"] {
+            color: #00FFFF; /* Cyan text color */
+            border-bottom-color: #00FFFF; /* Cyan border color */
+        }
+        .tab-content {
+            background-color: #1f2937; /* Slightly lighter dark background color */
+            color: #e2e8f0; /* Light gray text color */
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -77,12 +100,6 @@
                 <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-github'></i></a>
                 <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxs-inbox'></i></a>
-                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
-                </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-800">
@@ -108,52 +125,167 @@
     <main class="pt-20 px-4">
 
         <section id="about" class="aboutme-section mt-8">
-            <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-                <div class="about-content flex flex-wrap items-center justify-between">
-                    <div class="about-text flex-1 mr-4">
-                        <h2 class="text-4xl font-bold mb-5">About Me</h2>
-                        <blockquote class="mb-4">
-                            <p class="italic"><em>"The biggest risk is not taking any risk... In a world that is changing really quickly, the only strategy that is guaranteed to fail is not taking risks." — Mark Zuckerberg</em></p>
-                        </blockquote>
-                        <p class="mb-4">I am a Business Intelligence Analyst with a strong passion in analytics engineering.</p>
-                        <p class="mb-4">I am a massive data nerd with extensive experience solving business problems in marketing and finance with data analytics and a 2x data hackathon winner.</p>
-                        <p class="mb-4">When not "working," I am building my own projects ranging from automating my everyday life, or solving problems for others through data analysis. I am also mentoring others in the field of data, from working on their personal brands on LinkedIn, to teaching them skills in data analytics like Python, SQL, and Tableau.</p>
-                    </div>
-                    <div class="about-image flex-shrink-0 mt-4 overflow-hidden w-60 h-60">
-                        <img src="/images/thumbnail/headshot.jpg" alt="PJ Villasista" class="w-full h-full rounded-full object-cover">
-                    </div>
+            <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+                <h1 class="text-4xl font-bold mb-4">About Me</h1>
+                
+                <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
+                    <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="about-tabs" data-tabs-toggle="#about-tabs-content" role="tablist">
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg" id="overview-tab" data-tabs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">Overview</button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="skills-education-tab" data-tabs-target="#skills-education" type="button" role="tab" aria-controls="skills-education" aria-selected="false">Skills and Education</button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="interests-tab" data-tabs-target="#interests" type="button" role="tab" aria-controls="interests" aria-selected="false">Interests</button>
+                        </li>
+                        <li class="mr-2" role="presentation">
+                            <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="others-tab" data-tabs-target="#others" type="button" role="tab" aria-controls="others" aria-selected="false">More Info</button>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        
-        <section id="skills-education" class="skills-education-section mt-8">
-            <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
-                        <div class="text-center mb-6">
-                            <i class='bx bx-analyse text-4xl'></i>
-                            <h2 class="text-4xl font-bold mt-4">Skills</h2>
+                
+                <div id="about-tabs-content">
+                    <div class="tab-content p-4 rounded-lg bg-gray-800 text-white" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                        <div class="flex flex-wrap items-center justify-between">
+                            <div class="flex-1 mr-4">
+                                <blockquote class="mb-4">
+                                    <p class="italic"><em>"The biggest risk is not taking any risk... In a world that is changing really quickly, the only strategy that is guaranteed to fail is not taking risks." — Mark Zuckerberg</em></p>
+                                </blockquote>
+                                <p class="mb-4">I am a Business Intelligence Analyst with a strong passion in analytics engineering.</p>
+                                <p class="mb-4">I am a massive data nerd with extensive experience solving business problems in marketing and finance with data analytics and a 2x data hackathon winner.</p>
+                                <p class="mb-4">When not "working," I am building my own projects ranging from automating my everyday life, or solving problems for others through data analysis. I am also mentoring others in the field of data, from working on their personal brands on LinkedIn, to teaching them skills in data analytics like Python, SQL, and Tableau.</p>
+                            </div>
+                            <div class="flex-shrink-0 mt-4 overflow-hidden w-60 h-60">
+                                <img src="/images/thumbnail/headshot.jpg" alt="PJ Villasista" class="w-full h-full rounded-full object-cover">
+                            </div>
                         </div>
-                        <ul class="list-disc list-inside ml-8 text-lg">
-                            <li>Data Analytics</li>
-                            <li>SQL</li>
-                            <li>Microsoft Excel</li>
-                            <li>Python</li>
-                            <li>Tableau</li>
-                            <li>GCP / AWS / Snowflake</li>
-                            <li>Git/Github</li>
-                        </ul>
+                    </div>                    
+                    <div class="tab-content hidden p-4 rounded-lg bg-gray-800 text-white" id="skills-education" role="tabpanel" aria-labelledby="skills-education-tab">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <i class='bx bx-analyse text-4xl'></i>
+                                    <h2 class="text-3xl font-bold mt-4">Skills</h2>
+                                </div>
+                                <ul class="list-disc list-inside ml-8 text-lg">
+                                    <li>Data Analytics</li>
+                                    <li>SQL</li>
+                                    <li>Microsoft Excel</li>
+                                    <li>Python</li>
+                                    <li>Tableau</li>
+                                    <li>GCP / AWS / Snowflake</li>
+                                    <li>Git/Github</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <i class='bx bx-briefcase text-4xl'></i>
+                                    <h2 class="text-3xl font-bold mt-4">Education</h2>
+                                </div>
+                                <ul class="list-disc list-inside ml-8 text-lg">
+                                    <li>Google Data Analytics Certificate - Coursera</li>
+                                    <li>BA Economics, Minor Finance - CSULB</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
-                        <div class="text-center mb-6">
-                            <i class='bx bx-briefcase text-4xl'></i>
-                            <h2 class="text-4xl font-bold mt-4">Education</h2>
+                    <div class="tab-content hidden p-4 rounded-lg bg-gray-800 text-white" id="interests" role="tabpanel" aria-labelledby="interests-tab">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <i class='bx bxs-music text-4xl'></i>
+                                    <h2 class="text-3xl font-bold mt-4 mb-4">Music</h2>
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1ed3wNCecRIp6SugyR0w2J?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>                                
+                                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6TYNbZdj8Jdht86Kf1yaeQ?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <div class="bg-gray-900 p-6 rounded-lg shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <i class='bx bx-film text-4xl'></i>
+                                    <h2 class="text-3xl font-bold mt-4 mb-4">Films & TV Shows</h2>
+                                </div>
+                                <ul class="list-disc list-inside ml-8 text-lg">
+                                    <li>One Piece (Greatest Anime of All Time)</li>
+                                    <li>Breaking Bad & Better Call Saul</li>
+                                    <li>The Batman Trilogy</li>
+                                </ul>
+                            </div>
                         </div>
-                        <ul class="list-disc list-inside ml-8 text-lg">
-                            <li>Google Data Analytics Certificate - Coursera</li>
-                            <li>BA Economics, Minor Finance - CSULB</li>
-                        </ul>
+                    </div>
+                    
+                    <div class="tab-content hidden p-4 rounded-lg bg-gray-800 text-white" id="others" role="tabpanel" aria-labelledby="moreinfo-tab">
+                        <div id="controls-carousel" class="relative w-full" data-carousel="static">
+                            <h2 class="text-2xl font-bold mb-4">Architecture</h2>
+                            <!-- Carousel wrapper -->
+                            <div class="relative h-96 overflow-hidden rounded-lg">
+                                <!-- Item 1 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                                    <div class="relative w-full h-full">
+                                        <img src="/images/architecture/pier_project3.jpg" alt="Full Project" class="absolute inset-0 w-full h-full object-cover filter blur z-0">
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4 z-10">
+                                            <h3 class="text-2xl font-bold mb-2 project-title">Architecture Projects</h3>
+                                            <p class="italic mb-1">Prior to my love of data, I was an architecture student at Cal Poly SLO</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Item 2 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="relative w-full h-full">
+                                        <img src="/images/architecture/pier_project2.jpg" alt="Full Project" class="absolute inset-0 w-full h-full object-cover filter z-0">
+                                    </div>
+                                </div>
+                                <!-- Item 3 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="relative w-full h-full">
+                                        <img src="/images/architecture/pier_project1.jpg" alt="Section Project" class="absolute inset-0 w-full h-full object-cover filter z-0">
+                                    </div>
+                                </div>
+                                <!-- Item 4 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="relative w-full h-full">
+                                        <img src="/images/architecture/pier_project4.JPG" alt="Full Project" class="absolute inset-0 w-full h-full object-cover filter z-0">
+                                    </div>
+                                </div>
+                                <!-- Item 5 -->
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="relative w-full h-full">
+                                        <img src="/images/architecture/final_portfolio.jpg" alt="Full Project" class="absolute inset-0 w-full h-full object-cover filter z-0">
+                                    </div>
+                                </div>
+                                 <!-- Item 6 -->
+                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <div class="relative w-full h-full">
+                                        <img src="/images/architecture/final_portfolio2.jpg" alt="Full Project" class="absolute inset-0 w-full h-full object-cover filter z-0">
+                                    </div>
+                                </div>
+                            <!-- Slider indicators -->
+                            <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+                                <button type="button" class="w-3 h-3 rounded-full bg-gray-400" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                                <button type="button" class="w-3 h-3 rounded-full bg-gray-400" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                                <button type="button" class="w-3 h-3 rounded-full bg-gray-400" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                                <button type="button" class="w-3 h-3 rounded-full bg-gray-400" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                                <button type="button" class="w-3 h-3 rounded-full bg-gray-400" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                                <button type="button" class="w-3 h-3 rounded-full bg-gray-400" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                            </div>
+                            <!-- Slider controls -->
+                            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-700 group-hover:bg-gray-600 group-focus:ring-4 group-focus:ring-gray-800 group-focus:outline-none">
+                                    <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                    </svg>
+                                    <span class="sr-only">Previous</span>
+                                </span>
+                            </button>
+                            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-700 group-hover:bg-gray-600 group-focus:ring-4 group-focus:ring-gray-800 group-focus:outline-none">
+                                    <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                    </svg>
+                                    <span class="sr-only">Next</span>
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -181,9 +313,9 @@
                         <!-- Item 1 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <div class="relative w-full h-full">
-                                <img src="/images/thumbnail/helldivers2.png" alt="Helldivers 2 Dashboard" class="absolute inset-0 w-full h-full object-cover filter blur z-0">
+                                <a href="projects/helldivers2.html"><img src="/images/thumbnail/helldivers2.png" alt="Helldivers 2 Dashboard" class="absolute inset-0 w-full h-full object-cover filter blur z-0"></a>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4 z-10">
-                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html" class="text-white">Helldivers 2 Dashboard</a></h3>
+                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/helldivers2.html" class="hover:text-cyan-500">Helldivers 2 Dashboard</a></h3>
                                     <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                                     <p class="italic mb-1">Created an analytics tool to improve Helldivers 2 gameplay by analyzing Steam player feedback. Used Python and Tableau for sentiment analysis and visualizations, addressing server performance and content variety issues for better player experience.</p>
                                 </div>
@@ -192,9 +324,9 @@
                         <!-- Item 2 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <div class="relative w-full h-full">
-                                <img src="/images/thumbnail/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="absolute inset-0 w-full h-full object-cover filter blur z-0">
+                                <a href="projects/montrealcrime.html"><img src="/images/thumbnail/montrealcrimedashboard.png" alt="Montreal Crime Analysis" class="absolute inset-0 w-full h-full object-cover filter blur z-0"></a>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4 z-10">
-                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html" class="text-white">Montreal Crime Analysis</a></h3>
+                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/montrealcrime.html" class="hover:text-cyan-500">Montreal Crime Analysis</a></h3>
                                     <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                                     <p class="italic mb-1">Analyzed Montreal crime data with SQL, Python, and Tableau. Created interactive dashboards to inform law enforcement and city planning. Enhanced data quality and collaboration, identifying crime patterns and seasonal trends.</p>
                                 </div>
@@ -203,9 +335,9 @@
                         <!-- Item 3 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <div class="relative w-full h-full">
-                                <img src="/images/thumbnail/yelpreviews.png" alt="Yelp Reviews Algorithm" class="absolute inset-0 w-full h-full object-cover filter blur z-0">
+                                <a href="projects/yelpreviews.html"><img src="/images/thumbnail/yelpreviews.png" alt="Yelp Reviews Algorithm" class="absolute inset-0 w-full h-full object-cover filter blur z-0"></a>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4 z-10">
-                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html" class="text-white">Yelp Reviews Algorithm</a></h3>
+                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/yelpreviews.html" class="hover:text-cyan-500">Yelp Reviews Algorithm</a></h3>
                                     <p class="font-semibold">📚 Tech Stack: Python, SQL, Tableau</p>
                                     <p class="italic mb-1">Developed an interactive Yelp business ranking dashboard using Python and Tableau. Applied sentiment analysis and linear regression to rank businesses, visualizing insights to highlight top performers based on reviews and ratings.</p>
                                 </div>
@@ -214,9 +346,9 @@
                         <!-- Item 4 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <div class="relative w-full h-full">
-                                <img src="/images/thumbnail/strava.png" alt="Strava Run Analytics" class="absolute inset-0 w-full h-full object-cover filter blur z-0">
+                                <a href="projects/strava.html"><img src="/images/thumbnail/strava.png" alt="Strava Run Analytics" class="absolute inset-0 w-full h-full object-cover filter blur z-0"></a>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4 z-10">
-                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html" class="text-white">Strava Run Analytics</a></h3>
+                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/strava.html" class="hover:text-cyan-500">Strava Run Analytics</a></h3>
                                     <p class="font-semibold">📚 Tech Stack: Python, Tableau</p>
                                     <p class="italic">This project aims to assist in marathon preparation by tracking runs and displaying locational data. It provides in-depth, granular analysis with second-by-second data on elevation, pace, and other metrics.</p>
                                 </div>
@@ -225,9 +357,9 @@
                         <!-- Item 5 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <div class="relative w-full h-full">
-                                <img src="/images/thumbnail/FMA.png" alt="FMA Marketing Analytics" class="absolute inset-0 w-full h-full object-cover filter blur z-0">
+                                <a href="projects/FMA_dashboard.html"><img src="/images/thumbnail/FMA.png" alt="FMA Marketing Analytics" class="absolute inset-0 w-full h-full object-cover filter blur z-0"></a>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4 z-10">
-                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/FMA_dashboard.html" class="text-white">FMA Marketing Dashboard</a></h3>
+                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/FMA_dashboard.html" class="hover:text-cyan-500">FMA Marketing Dashboard</a></h3>
                                     <p class="font-semibold">📚 Tech Stack: Python, Excel, Tableau</p>
                                     <p class="italic">This project enhances FMA's Instagram strategy by analyzing data with Python and visualizing trends using Tableau. It identifies engagement patterns, optimal posting times, and content preferences, boosting reach and engagement.</p>
                                 </div>
@@ -236,9 +368,9 @@
                         <!-- Item 6 -->
                         <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                             <div class="relative w-full h-full">
-                                <img src="/images/thumbnail/googleanalytics.png" alt="Google Analytics Session" class="absolute inset-0 w-full h-full object-cover filter blur z-0">
+                                <a href="projects/ga_session.html"><img src="/images/thumbnail/googleanalytics.png" alt="Google Analytics Session" class="absolute inset-0 w-full h-full object-cover filter blur z-0"></a>
                                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-50 p-4 z-10">
-                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/ga_session.html" class="text-white">Google Analytics Session</a></h3>
+                                    <h3 class="text-2xl font-bold mb-2 project-title"><a href="projects/ga_session.html" class="hover:text-cyan-500">Google Analytics Session</a></h3>
                                     <p class="font-semibold">📚 Tech Stack: BigQuery, SQL</p>
                                     <p class="italic">This project analyzes Google Analytics data to provide insights into user behavior, website performance, and marketing effectiveness using SQL queries. Key analyses include transactions per device, bounce rates, product pageviews, and revenue per session.</p>
                                 </div>

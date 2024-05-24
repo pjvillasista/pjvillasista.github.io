@@ -19,12 +19,6 @@
                 <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-linkedin'></i></a>
                 <a href="https://github.com/pjvillasista" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxl-github'></i></a>
                 <a href="mailto:pjvillasista@gmail.com" target="_blank" class="text-2xl hover:text-blue-500"><i class='bx bxs-inbox'></i></a>
-                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
-                </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-gray-800">
@@ -48,19 +42,39 @@
         </div>
     </nav>
     <main class="pt-20 px-4">
-        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
             <h1 class="text-4xl font-bold mb-4">Yelp Review Algorithm</h1>
             <p class="mb-4">This project developed a business ranking algorithm for Yelp reviews, analyzing sentiment and performance data to highlight top businesses through an interactive dashboard.            </p>
-            <div class="viz-wrapper">
-                <div class="viz-container">
-                    <iframe src="https://public.tableau.com/views/YelpReviewRugProject/MapDash?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
-                </div>
+            
+            <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab" aria-controls="about-project" aria-selected="false">About the Project</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="demo-tab" data-tabs-target="#demo" type="button" role="tab" aria-controls="demo" aria-selected="false">Demo</button>
+                    </li>
+                </ul>
             </div>
-            <div>
-                <h2 class="text-4xl font-bold mb-4">Presentation</h2>
-                <div class="viz-wrapper">
-                    <div class="viz-container">
-                        <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214264&amp;authkey=%21AMcm4tJ6RoBiaZI&amp;em=2&amp;wdAr=1.7777777777777777" width="1366px" height="768px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>                    </div>
+            
+            <div id="project-tabs-content">
+                <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                    <div class="viz-wrapper">
+                        <div class="viz-container">
+                            <iframe src="https://public.tableau.com/views/YelpReviewRugProject/MapDash?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
+                    <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214264&amp;authkey=%21AMcm4tJ6RoBiaZI&amp;em=2&amp;wdAr=1.7777777777777777" width="1366px" height="768px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>                    </div>
+                </div>
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel" aria-labelledby="demo-tab">
+                    <div class="viz-wrapper">
+                            
+                    </div>
                 </div>
             </div>
         </div>
