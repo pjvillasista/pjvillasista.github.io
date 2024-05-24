@@ -7,6 +7,7 @@
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
     <link href="../assets/css/project_styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <nav class="bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-700 shadow-lg">
@@ -49,58 +50,77 @@
     <main class="pt-20 px-4">
         <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
             <h1 class="text-4xl font-bold mb-4">Helldivers 2 Tableau Dashboard</h1>
-            <p class="mb-4">This project created an analytics tool to enhance the gameplay experience of Helldivers 2 by analyzing player feedback from Steam, identifying key issues, and visualizing insights for developers.            </p>
-            <div class="viz-wrapper">
-                <div class="viz-container">
-                    <iframe src="https://public.tableau.com/views/Helldivers2ExecutiveSentimentDashboard/Dashboard1?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
+            <p class="mb-4">This project created an analytics tool to enhance the gameplay experience of Helldivers 2 by analyzing player feedback from Steam, identifying key issues, and visualizing insights for developers.</p>
+            
+            <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab" aria-controls="about-project" aria-selected="false">About the Project</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="demo-tab" data-tabs-target="#demo" type="button" role="tab" aria-controls="demo" aria-selected="false">Demo</button>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="project-tabs-content">
+                <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                    <div class="viz-wrapper">
+                        <div class="viz-container">
+                            <iframe src="https://public.tableau.com/views/Helldivers2ExecutiveSentimentDashboard/Dashboard1?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
+                    <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
+                    <p class="mb-4">Since the launch of Helldivers 2, the game has experienced various performance issues, crashes, and connectivity problems reported by players on Steam. The challenge was to develop a tool that could help the development team at Arrowhead Studios identify and address these issues efficiently to maintain high player satisfaction and engagement.</p>
+                    <h2 class="text-3xl font-bold mb-4">The Approach</h2>
+                    <div class="pl-6">
+                        <p class="mb-4">1. <strong>Filterable Dates:</strong> Implemented a feature to view issues from specific periods, helping pinpoint when certain problems started and track improvements over time.</p>
+                        <p class="mb-4">2. <strong>Sentiment Analysis:</strong> Analyzed the sentiment of user reviews and feedback to highlight overall player mood and satisfaction, crucial for maintaining a positive community.</p>
+                        <p class="mb-4">3. <strong>Issue Categorization:</strong> Categorized issues into crashes, connectivity problems, content issues, and community interactions to provide targeted insights for developers.</p>
+                        <p class="mb-4">4. <strong>Data Integration and Visualization:</strong> Used Python for scripting, data scraping, and calling the Steamworks API to gather real-time data and feedback. Employed Tableau for visualizing data and insights, enabling the team to make informed decisions quickly.</p>
+                        <p class="mb-4">5. <strong>Automation with Apache Airflow:</strong> Utilized Apache Airflow for scheduling tasks, ensuring consistent data collection and analysis every week to keep the feedback loop current and relevant.</p>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">The Outcome</h2>
+                    <p class="mb-4">The project resulted in a comprehensive analytics tool that provides real-time insights into player feedback and performance issues for Helldivers 2. The development team at Arrowhead Studios can now swiftly identify and address issues, significantly improving the overall gaming experience.</p>
+                    <h2 class="text-3xl font-bold mb-4">Users Can:</h2>
+                    <div class="pl-6">
+                        <ul class="list-disc list-inside mb-4">
+                            <li>Filter issues by specific periods to track the origin and improvements of problems.</li>
+                            <li>View sentiment analysis of user reviews to gauge overall player satisfaction.</li>
+                            <li>Identify and categorize issues such as crashes, connectivity problems, and content feedback.</li>
+                            <li>Access real-time data and insights through interactive visualizations.</li>
+                        </ul>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+                    <div class="pl-6">
+                        <ul class="list-disc list-inside mb-4">
+                            <li><strong>Filterable Dates:</strong> Allows the team to view issues from specific periods, helping pinpoint when certain problems started and track improvements over time.</li>
+                            <li><strong>Sentiment Analysis:</strong> Analyzes the sentiment of user reviews and feedback, highlighting overall player mood and satisfaction.</li>
+                            <li><strong>Issue Categorization:</strong> Categorizes issues into crashes, connectivity problems, content feedback, and community interactions.</li>
+                            <li><strong>Data Integration and Visualization:</strong> Uses Python for scripting, data scraping, and calling the Steamworks API. Employs Tableau for data visualization.</li>
+                            <li><strong>Automation with Apache Airflow:</strong> Utilizes Apache Airflow for scheduling tasks, ensuring consistent data collection and analysis.</li>
+                        </ul>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
+                    <ul class="list-disc list-inside mb-4">
+                        <li><strong>Python:</strong> For scripting, data scraping, and calling the Steamworks API.</li>
+                        <li><strong>BERTopic:</strong> For topical modeling to identify the top topics in user feedback.</li>
+                        <li><strong>Tableau:</strong> For data visualization.</li>
+                        <li><strong>Apache Airflow:</strong> For scheduling tasks and automating data collection and analysis.</li>
+                    </ul>
+                </div>
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel" aria-labelledby="demo-tab">
+ 
                 </div>
             </div>
         </div>
-        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
-            <h1 class="text-4xl font-bold mb-8">About The Project</h1>
-            <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
-            <p class="mb-4">Since the launch of Helldivers 2, the game has experienced various performance issues, crashes, and connectivity problems reported by players on Steam. The challenge was to develop a tool that could help the development team at Arrowhead Studios identify and address these issues efficiently to maintain high player satisfaction and engagement.</p>
-
-            <h2 class="text-3xl font-bold mb-4">The Approach</h2>
-            <div class="pl-6">
-                <p class="mb-4">1. <strong>Filterable Dates:</strong> Implemented a feature to view issues from specific periods, helping pinpoint when certain problems started and track improvements over time.</p>
-                <p class="mb-4">2. <strong>Sentiment Analysis:</strong> Analyzed the sentiment of user reviews and feedback to highlight overall player mood and satisfaction, crucial for maintaining a positive community.</p>
-                <p class="mb-4">3. <strong>Issue Categorization:</strong> Categorized issues into crashes, connectivity problems, content issues, and community interactions to provide targeted insights for developers.</p>
-                <p class="mb-4">4. <strong>Data Integration and Visualization:</strong> Used Python for scripting, data scraping, and calling the Steamworks API to gather real-time data and feedback. Employed Tableau for visualizing data and insights, enabling the team to make informed decisions quickly.</p>
-                <p class="mb-4">5. <strong>Automation with Apache Airflow:</strong> Utilized Apache Airflow for scheduling tasks, ensuring consistent data collection and analysis every week to keep the feedback loop current and relevant.</p>
-            </div>
-
-            <h2 class="text-3xl font-bold mb-4">The Outcome</h2>
-            <p class="mb-4">The project resulted in a comprehensive analytics tool that provides real-time insights into player feedback and performance issues for Helldivers 2. The development team at Arrowhead Studios can now swiftly identify and address issues, significantly improving the overall gaming experience.</p>
-
-            <h2 class="text-3xl font-bold mb-4">Users Can:</h2>
-            <div class="pl-6">
-                <ul class="list-disc list-inside mb-4">
-                    <li>Filter issues by specific periods to track the origin and improvements of problems.</li>
-                    <li>View sentiment analysis of user reviews to gauge overall player satisfaction.</li>
-                    <li>Identify and categorize issues such as crashes, connectivity problems, and content feedback.</li>
-                    <li>Access real-time data and insights through interactive visualizations.</li>
-                </ul>
-            </div>
-            <h2 class="text-3xl font-bold mb-4">Key Features</h2>
-            <div class="pl-6">
-                <ul class="list-disc list-inside mb-4">
-                    <li><strong>Filterable Dates:</strong> Allows the team to view issues from specific periods, helping pinpoint when certain problems started and track improvements over time.</li>
-                    <li><strong>Sentiment Analysis:</strong> Analyzes the sentiment of user reviews and feedback, highlighting overall player mood and satisfaction.</li>
-                    <li><strong>Issue Categorization:</strong> Categorizes issues into crashes, connectivity problems, content feedback, and community interactions.</li>
-                    <li><strong>Data Integration and Visualization:</strong> Uses Python for scripting, data scraping, and calling the Steamworks API. Employs Tableau for data visualization.</li>
-                    <li><strong>Automation with Apache Airflow:</strong> Utilizes Apache Airflow for scheduling tasks, ensuring consistent data collection and analysis.</li>
-                </ul>
-            </div>
-            <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
-            <ul class="list-disc list-inside mb-4">
-                <li><strong>Python:</strong> For scripting, data scraping, and calling the Steamworks API.</li>
-                <li><strong>BERTopic:</strong> For topical modeling to identify the top topics in user feedback.</li>
-                <li><strong>Tableau:</strong> For data visualization.</li>
-                <li><strong>Apache Airflow:</strong> For scheduling tasks and automating data collection and analysis.</li>
-            </ul>
-        </div>
     </main>
     <script src="../assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>

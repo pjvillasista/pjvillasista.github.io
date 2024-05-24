@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <link href="../assets/css/project_styles.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <nav class="bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-700 shadow-lg">
@@ -47,58 +48,71 @@
         </div>
     </nav>
     <main class="pt-20 px-4">
-        
         <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
             <h1 class="text-4xl font-bold mb-4">BrightFutures Tableau Dashboard</h1>
             <p class="mb-4">This project developed a data-driven dashboard to streamline school selection in Southern California, leveraging web scraping, cloud data warehousing, and interactive visualizations.</p>
-            <div class="viz-wrapper">
-                <div class="viz-container">
-                    <iframe src="https://public.tableau.com/views/BrightFutures/Dashboard1?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
+            
+            <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab" aria-controls="about-project" aria-selected="false">About the Project</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="demo-tab" data-tabs-target="#demo" type="button" role="tab" aria-controls="demo" aria-selected="false">Demo</button>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="project-tabs-content">
+                <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                    <div class="viz-wrapper">
+                        <div class="viz-container">
+                            <iframe src="https://public.tableau.com/views/BrightFutures/Dashboard1?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
+                        </div>
+                    </div>
                 </div>
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
+                    <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
+                    <p class="mb-4">Finding the right school in Southern California can be a daunting task for parents and guardians. The challenge was to create a centralized, comprehensive, and easily accessible database of schools that provides all necessary information in one place, allowing for informed decision-making.</p>
+                    <h2 class="text-3xl font-bold mb-4">The Approach</h2>
+                    <div class="pl-6">
+                        <p class="mb-4">1. <strong>Dynamic Web Scraping:</strong> Automated extraction of comprehensive school data from multiple educational portals using Python & Selenium. This ensured the dataset was robust and up-to-date.</p>
+                        <p class="mb-4">2. <strong>Data Enrichment & Geocoding:</strong> Enhanced the dataset with geographical coordinates and other relevant information using Python and geopy, making it more valuable and user-friendly.</p>
+                        <p class="mb-4">3. <strong>Efficient Data Warehousing with Snowflake:</strong> Utilized Snowflake's cloud platform for data storage, along with Snowpipe for seamless, automated data ingestion, ensuring data integrity and accessibility.</p>
+                        <p class="mb-4">4. <strong>Interactive Data Visualizations:</strong> Created insightful charts and maps with Tableau, making complex data easily interpretable and visually appealing for users.</p>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">The Outcome</h2>
+                    <p class="mb-4">The project successfully created a comprehensive and interactive web dashboard that provides detailed insights into schools across Southern California. Parents and guardians can now make well-informed decisions based on various metrics and geographical information, significantly simplifying the school selection process.</p>
+                    <h2 class="text-3xl font-bold mb-4">Users Can:</h2>
+                    <ul class="list-disc list-inside mb-4 pl-6">
+                        <li>Access a centralized database of schools in Southern California.</li>
+                        <li>View detailed information on each school, including geographical data.</li>
+                        <li>Interact with dynamic and insightful visualizations to compare schools.</li>
+                        <li>Make informed decisions about their children's education based on comprehensive data.</li>
+                    </ul>
+                    <h2 class="text-3xl font-bold mb-4">Key Features</h2>
+                    <ul class="list-disc list-inside mb-4 pl-6">
+                        <li><strong>Dynamic Web Scraping:</strong> Automated extraction of comprehensive school data from multiple educational portals using Python & Selenium.</li>
+                        <li><strong>Data Enrichment & Geocoding:</strong> Enhancement of the dataset with geographical coordinates and other relevant information using Python and geopy.</li>
+                        <li><strong>Efficient Data Warehousing with Snowflake:</strong> Utilization of Snowflake's cloud platform for data storage and ingestion.</li>
+                        <li><strong>Interactive Data Visualizations:</strong> Creation of insightful charts and maps with Tableau, making complex data easily interpretable.</li>
+                    </ul>
+                    <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
+                    <ul class="list-disc list-inside mb-4 pl-6">
+                        <li><strong>Python & Selenium:</strong> For web scraping</li>
+                        <li><strong>geopy:</strong> For data enrichment and geocoding</li>
+                        <li><strong>Snowflake & Snowpipe:</strong> For data storage and ingestion</li>
+                        <li><strong>Tableau:</strong> For data visualization</li>
+                    </ul>
+                </div>
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel" aria-labelledby="demo-tab">
+
             </div>
-        </div>
-
-        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
-            <h1 class="text-4xl font-bold mb-8">About The Project</h1>
-            <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
-            <p class="mb-4">Finding the right school in Southern California can be a daunting task for parents and guardians. The challenge was to create a centralized, comprehensive, and easily accessible database of schools that provides all necessary information in one place, allowing for informed decision-making.</p>
-
-            <h2 class="text-3xl font-bold mb-4">The Approach</h2>
-            <div class="pl-6">
-                <p class="mb-4">1. <strong>Dynamic Web Scraping:</strong> Automated extraction of comprehensive school data from multiple educational portals using Python & Selenium. This ensured the dataset was robust and up-to-date.</p>
-                <p class="mb-4">2. <strong>Data Enrichment & Geocoding:</strong> Enhanced the dataset with geographical coordinates and other relevant information using Python and geopy, making it more valuable and user-friendly.</p>
-                <p class="mb-4">3. <strong>Efficient Data Warehousing with Snowflake:</strong> Utilized Snowflake's cloud platform for data storage, along with Snowpipe for seamless, automated data ingestion, ensuring data integrity and accessibility.</p>
-                <p class="mb-4">4. <strong>Interactive Data Visualizations:</strong> Created insightful charts and maps with Tableau, making complex data easily interpretable and visually appealing for users.</p>
-            </div>
-
-            <h2 class="text-3xl font-bold mb-4">The Outcome</h2>
-            <p class="mb-4">The project successfully created a comprehensive and interactive web dashboard that provides detailed insights into schools across Southern California. Parents and guardians can now make well-informed decisions based on various metrics and geographical information, significantly simplifying the school selection process.</p>
-
-            <h2 class="text-3xl font-bold mb-4">Users Can:</h2>
-            <ul class="list-disc list-inside mb-4 pl-6">
-                <li>Access a centralized database of schools in Southern California.</li>
-                <li>View detailed information on each school, including geographical data.</li>
-                <li>Interact with dynamic and insightful visualizations to compare schools.</li>
-                <li>Make informed decisions about their children's education based on comprehensive data.</li>
-            </ul>
-
-            <h2 class="text-3xl font-bold mb-4">Key Features</h2>
-            <ul class="list-disc list-inside mb-4 pl-6">
-                <li><strong>Dynamic Web Scraping:</strong> Automated extraction of comprehensive school data from multiple educational portals using Python & Selenium.</li>
-                <li><strong>Data Enrichment & Geocoding:</strong> Enhancement of the dataset with geographical coordinates and other relevant information using Python and geopy.</li>
-                <li><strong>Efficient Data Warehousing with Snowflake:</strong> Utilization of Snowflake's cloud platform for data storage and ingestion.</li>
-                <li><strong>Interactive Data Visualizations:</strong> Creation of insightful charts and maps with Tableau, making complex data easily interpretable.</li>
-            </ul>
-
-            <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
-            <ul class="list-disc list-inside mb-4 pl-6">
-                <li><strong>Python & Selenium:</strong> For web scraping</li>
-                <li><strong>geopy:</strong> For data enrichment and geocoding</li>
-                <li><strong>Snowflake & Snowpipe:</strong> For data storage and ingestion</li>
-                <li><strong>Tableau:</strong> For data visualization</li>
-            </ul>
         </div>
     </main>
-    <script src="../assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
