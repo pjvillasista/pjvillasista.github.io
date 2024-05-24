@@ -75,3 +75,32 @@ th, td {
     margin-bottom: 10px;
     font-weight: bold;
 }
+.font-oswald {
+    font-family: 'Oswald', sans-serif;
+}
+.font-source-serif {
+    font-family: 'Source Serif Pro', serif;
+}
+.tabs {
+    border-bottom: 1px solid #4b5563; /* Gray border color */
+}
+.tabs button {
+    color: #9ca3af; /* Text gray color */
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+.tabs button:hover,
+.tabs button[aria-selected="true"] {
+    color: #00FFFF; /* Cyan text color */
+    border-bottom-color: #00FFFF; /* Cyan border color */
+}
+.tab-content {
+    background-color: #2d3748; /* Slightly lighter dark background color */
+    color: #e2e8f0; /* Light gray text color */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
