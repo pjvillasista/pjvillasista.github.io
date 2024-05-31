@@ -42,33 +42,39 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Oswald', sans-serif;
   }
-  
-  .viz-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    background-color: #1e252d;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+  p, li {
+    color: var(--textColor);
+    font-size: var(--paragraphs);
+    line-height: 1.8;
+    font-weight: 400;
   }
-  .viz-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  h1 {
+    font-size: var(--title);
+    font-weight: normal;
+    background: var(--textGradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .viz-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+  h2 {
+    font-size: var(--heading);
   }
   
-  /* Navbar Styles */
+  .max-w-screen-xl {
+      max-width: 1280px;
+  }
+  .container {
+      max-width: 1024px;
+  }
+  
+  /* Hover Effects */
+  a {
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  a:hover {
+    color: var(--prim);
+  }
   .navbar a {
     transition: color 0.3s ease-in-out;
   }
@@ -76,14 +82,27 @@
     color: #00FFFF; /* Change to cyan on hover */
   }
   
-  /* Dropdown Styles */
+  .project-thumbnail {
+    transition: transform 0.3s ease-in-out;
+  }
+  .project-thumbnail:hover {
+    transform: scale(1.02);
+  }
+  .project-title {
+    transition: color 0.3s ease-in-out;
+  }
+  .project-title:hover {
+    color: #00FFFF; /* Change to cyan on hover */
+  }
+  
+  /* Dropdown */
   .dropdown-content {
     display: none;
     position: absolute;
     background-color: #1f2937;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    grid-template-columns: 1fr 1fr; /* Create two columns */
+    z-index: 10;
+    grid-template-columns: 1fr 1fr 1fr; /* Create two columns */
     gap: 10px; /* Space between items */
     padding: 10px; /* Padding around items */
     font-family: 'Source Serif Pro', serif;
@@ -102,33 +121,6 @@
   }
   .dropdown:hover .dropbtn {
     color: #00FFFF;
-  }
-  
-  /* Table Styles */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  /* Question Styles */
-  .question {
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  /* Font Classes */
-  .font-oswald {
-    font-family: 'Oswald', sans-serif;
-  }
-  .font-source-serif {
-    font-family: 'Source Serif Pro', serif;
   }
   
   /* Tabs */
@@ -156,7 +148,7 @@
     margin-top: 16px;
   }
   
-  /* Container and Card Styles */
+  /* Container Styles */
   .container {
     padding: var(--containerGap);
     border: var(--border);
