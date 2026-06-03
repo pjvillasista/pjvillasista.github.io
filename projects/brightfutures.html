@@ -2,20 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BrightFutures Tableau Dashboard</title>
-    <meta name="description" content="Explore the BrightFutures project - a data-driven dashboard to streamline school selection in Southern California. Leveraging web scraping, cloud data warehousing, and interactive visualizations.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightFutures Dashboard — PJ Villasista</title>
+    <meta name="description" content="BrightFutures: a data pipeline and Tableau dashboard for school selection in Southern California. Built with Python, Selenium, Snowflake, and Snowpipe.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link href="../assets/css/project_styles.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <div id="navbar-placeholder"></div>
     <main class="pt-20 px-4">
         <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
-            <h1 class="text-4xl font-bold mb-4">BrightFutures Tableau Dashboard</h1>
-            <p class="mb-4">This project developed a data-driven dashboard to streamline school selection in Southern California, leveraging web scraping, cloud data warehousing, and interactive visualizations.</p>
-            
+            <h1 class="text-4xl font-bold mb-2">BrightFutures Dashboard</h1>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Selenium</span>
+                <span class="skill-tag">Snowflake</span>
+                <span class="skill-tag">Snowpipe</span>
+                <span class="skill-tag">Tableau</span>
+            </div>
+            <p class="mb-4">A data pipeline and interactive dashboard that centralizes school data across Southern California — scraped, geo-enriched, warehoused, and visualized — so parents can compare schools on a single pane instead of five browser tabs.</p>
+
             <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
                     <li class="mr-2" role="presentation">
@@ -29,8 +38,9 @@
                     </li>
                 </ul>
             </div>
-            
+
             <div id="project-tabs-content">
+                <!-- Dashboard -->
                 <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                     <div class="viz-wrapper">
                         <div class="viz-container">
@@ -38,46 +48,61 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- About the Project -->
                 <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
-                    <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
-                    <p class="mb-4">Finding the right school in Southern California can be a daunting task for parents and guardians. The challenge was to create a centralized, comprehensive, and easily accessible database of schools that provides all necessary information in one place, allowing for informed decision-making.</p>
-                    <h2 class="text-3xl font-bold mb-4">The Approach</h2>
-                    <div class="pl-6">
-                        <p class="mb-4">1. <strong>Dynamic Web Scraping:</strong> Automated extraction of comprehensive school data from multiple educational portals using Python & Selenium. This ensured the dataset was robust and up-to-date.</p>
-                        <p class="mb-4">2. <strong>Data Enrichment & Geocoding:</strong> Enhanced the dataset with geographical coordinates and other relevant information using Python and geopy, making it more valuable and user-friendly.</p>
-                        <p class="mb-4">3. <strong>Efficient Data Warehousing with Snowflake:</strong> Utilized Snowflake's cloud platform for data storage, along with Snowpipe for seamless, automated data ingestion, ensuring data integrity and accessibility.</p>
-                        <p class="mb-4">4. <strong>Interactive Data Visualizations:</strong> Created insightful charts and maps with Tableau, making complex data easily interpretable and visually appealing for users.</p>
+                    <h2 class="text-2xl font-bold mb-3">The Challenge</h2>
+                    <p class="mb-4">Parents comparing schools in Southern California face a fragmented landscape — performance data on one site, location data on another, tuition on a third. The goal was to pull all of it into one place and make it filterable.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">The Approach</h2>
+                    <div class="space-y-3 mb-4 pl-4">
+                        <p><strong>1. Dynamic Web Scraping:</strong> Used Python and Selenium to automate extraction of school data (name, type, grades, performance metrics, contact info) from multiple California educational portals.</p>
+                        <p><strong>2. Data Enrichment & Geocoding:</strong> Enhanced each school record with geographical coordinates using <code class="text-cyan-300">geopy</code>, enabling map-based filtering by proximity.</p>
+                        <p><strong>3. Cloud Warehousing with Snowflake:</strong> Loaded the processed dataset into Snowflake using Snowpipe for automated, event-driven ingestion — data stays current without manual re-runs.</p>
+                        <p><strong>4. Interactive Tableau Dashboard:</strong> Connected Tableau directly to Snowflake; built a map view, comparison filters, and performance trend charts for end-user exploration.</p>
                     </div>
-                    <h2 class="text-3xl font-bold mb-4">The Outcome</h2>
-                    <p class="mb-4">The project successfully created a comprehensive and interactive web dashboard that provides detailed insights into schools across Southern California. Parents and guardians can now make well-informed decisions based on various metrics and geographical information, significantly simplifying the school selection process.</p>
-                    <h2 class="text-3xl font-bold mb-4">Users Can:</h2>
-                    <ul class="list-disc list-inside mb-4 pl-6">
-                        <li>Access a centralized database of schools in Southern California.</li>
-                        <li>View detailed information on each school, including geographical data.</li>
-                        <li>Interact with dynamic and insightful visualizations to compare schools.</li>
-                        <li>Make informed decisions about their children's education based on comprehensive data.</li>
-                    </ul>
-                    <h2 class="text-3xl font-bold mb-4">Key Features</h2>
-                    <ul class="list-disc list-inside mb-4 pl-6">
-                        <li><strong>Dynamic Web Scraping:</strong> Automated extraction of comprehensive school data from multiple educational portals using Python & Selenium.</li>
-                        <li><strong>Data Enrichment & Geocoding:</strong> Enhancement of the dataset with geographical coordinates and other relevant information using Python and geopy.</li>
-                        <li><strong>Efficient Data Warehousing with Snowflake:</strong> Utilization of Snowflake's cloud platform for data storage and ingestion.</li>
-                        <li><strong>Interactive Data Visualizations:</strong> Creation of insightful charts and maps with Tableau, making complex data easily interpretable.</li>
-                    </ul>
-                    <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
-                    <ul class="list-disc list-inside mb-4 pl-6">
-                        <li><strong>Python & Selenium:</strong> For web scraping</li>
-                        <li><strong>geopy:</strong> For data enrichment and geocoding</li>
-                        <li><strong>Snowflake & Snowpipe:</strong> For data storage and ingestion</li>
-                        <li><strong>Tableau:</strong> For data visualization</li>
+
+                    <h2 class="text-2xl font-bold mb-3">The Outcome</h2>
+                    <p class="mb-4">A self-refreshing school database covering Southern California. Users can filter by district, school type, grade range, and proximity, then compare side-by-side on metrics like enrollment, performance, and location — all in one dashboard.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">Technologies Used</h2>
+                    <ul class="list-disc list-inside pl-4 space-y-1 text-gray-300">
+                        <li><strong>Python & Selenium</strong> — automated web scraping</li>
+                        <li><strong>geopy</strong> — geocoding for map-based filtering</li>
+                        <li><strong>Snowflake & Snowpipe</strong> — cloud storage and automated ingestion</li>
+                        <li><strong>Tableau</strong> — interactive visualizations connected live to Snowflake</li>
                     </ul>
                 </div>
-                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel" aria-labelledby="demo-tab">
 
+                <!-- Demo -->
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel" aria-labelledby="demo-tab">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">School Search Interface</h3>
+                            <img src="/images/demo/BrightFutures/1_Intro.png" alt="BrightFutures intro screenshot" class="w-full rounded-lg border border-gray-700">
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">School Detail View</h3>
+                            <img src="/images/demo/BrightFutures/2_example_school.png" alt="BrightFutures school detail screenshot" class="w-full rounded-lg border border-gray-700">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <footer class="bg-gray-800 border-t border-gray-700 py-6 mt-8">
+        <div class="container mx-auto px-4 flex flex-wrap items-center justify-between text-gray-400 text-sm">
+            <a href="/index.html" class="hover:text-cyan-400">&larr; Back to Portfolio</a>
+            <div class="flex gap-4 mt-2 md:mt-0">
+                <a href="mailto:pjvillasista@gmail.com" class="hover:text-cyan-400" aria-label="Email"><i class='bx bx-envelope text-lg'></i></a>
+                <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="LinkedIn"><i class='bx bxl-linkedin text-lg'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="GitHub"><i class='bx bxl-github text-lg'></i></a>
+            </div>
+        </div>
+    </footer>
+
     <script src="/assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>

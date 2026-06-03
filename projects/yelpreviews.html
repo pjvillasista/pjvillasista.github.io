@@ -2,20 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Yelp Reviews Algorithm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelp Reviews Ranking Algorithm — PJ Villasista</title>
+    <meta name="description" content="Yelp business ranking algorithm combining VADER sentiment analysis and linear regression to produce composite scores that surface genuinely well-regarded businesses beyond raw star ratings.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link href="../assets/css/project_styles.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <div id="navbar-placeholder"></div>
     <main class="pt-20 px-4">
         <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
-            <h1 class="text-4xl font-bold mb-4">Yelp Review Algorithm</h1>
-            <p class="mb-4">This project developed a business ranking algorithm for Yelp reviews, analyzing sentiment and performance data to highlight top businesses through an interactive dashboard.            </p>
-            
+            <h1 class="text-4xl font-bold mb-2">Yelp Reviews Ranking Algorithm</h1>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">VADER Sentiment</span>
+                <span class="skill-tag">Linear Regression</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Tableau</span>
+            </div>
+            <p class="mb-4">A composite ranking model that combines star ratings, review volume, and VADER sentiment scores to rank Yelp businesses more reliably than stars alone — then maps the results in an interactive Tableau dashboard.</p>
+
             <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
                     <li class="mr-2" role="presentation">
@@ -24,13 +33,11 @@
                     <li class="mr-2" role="presentation">
                         <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab" aria-controls="about-project" aria-selected="false">About the Project</button>
                     </li>
-                    <li class="mr-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="demo-tab" data-tabs-target="#demo" type="button" role="tab" aria-controls="demo" aria-selected="false">Demo</button>
-                    </li>
                 </ul>
             </div>
-            
+
             <div id="project-tabs-content">
+                <!-- Dashboard -->
                 <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                     <div class="viz-wrapper">
                         <div class="viz-container">
@@ -38,17 +45,47 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- About the Project -->
                 <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
-                    <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214264&amp;authkey=%21AMcm4tJ6RoBiaZI&amp;em=2&amp;wdAr=1.7777777777777777" width="1366px" height="768px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>                    </div>
-                </div>
-                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel" aria-labelledby="demo-tab">
-                    <div class="viz-wrapper">
-                            
+                    <h2 class="text-2xl font-bold mb-3">The Challenge</h2>
+                    <p class="mb-4">A 4.5-star restaurant with 8 reviews should not outrank a 4.2-star restaurant with 2,000. Yelp's default ranking conflates recency, ad spend, and raw star ratings in ways that bury genuinely well-regarded businesses. The goal was to build a transparent, data-driven ranking that weights star rating, review volume, and actual sentiment from review text.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">The Approach</h2>
+                    <div class="space-y-3 mb-4 pl-4">
+                        <p><strong>1. Data Collection:</strong> Pulled Yelp business and review data (name, category, location, star rating, review count, review text) via the Yelp dataset.</p>
+                        <p><strong>2. Sentiment Scoring (VADER):</strong> Applied VADER (Valence Aware Dictionary and sEntiment Reasoner) to each review's text to extract a compound sentiment score. VADER is well-suited to short, informal text — exactly what Yelp reviews look like.</p>
+                        <p><strong>3. Composite Ranking Model (Linear Regression):</strong> Used linear regression to fit a composite score from three inputs: average star rating, log-transformed review count, and average VADER sentiment score. The log transform on review count prevents a business with 10,000 reviews from drowning out everything else.</p>
+                        <p><strong>4. SQL Analysis:</strong> Queried the scored dataset to produce ranked lists by category and neighborhood, validate distributions, and identify edge cases.</p>
+                        <p><strong>5. Tableau Dashboard:</strong> Built a map-based dashboard showing ranked businesses geographically, with filters by category, city, and composite score range.</p>
                     </div>
+
+                    <h2 class="text-2xl font-bold mb-3">The Outcome</h2>
+                    <p class="mb-4">A more defensible business ranking that surfaces consistently well-reviewed businesses over flash-in-the-pan high-stars-low-volume ones. The map dashboard lets users explore top performers by neighborhood and category with a clear composite score backing each ranking.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">Technologies Used</h2>
+                    <ul class="list-disc list-inside pl-4 space-y-1 text-gray-300">
+                        <li><strong>Python (VADER, sklearn, Pandas)</strong> — sentiment analysis and regression modeling</li>
+                        <li><strong>SQL</strong> — aggregation, ranking queries, and data validation</li>
+                        <li><strong>Tableau</strong> — geographic map dashboard with composite score filters</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </main>
-    <script src="../assets/js/app.js"></script>
+
+    <footer class="bg-gray-800 border-t border-gray-700 py-6 mt-8">
+        <div class="container mx-auto px-4 flex flex-wrap items-center justify-between text-gray-400 text-sm">
+            <a href="/index.html" class="hover:text-cyan-400">&larr; Back to Portfolio</a>
+            <div class="flex gap-4 mt-2 md:mt-0">
+                <a href="mailto:pjvillasista@gmail.com" class="hover:text-cyan-400" aria-label="Email"><i class='bx bx-envelope text-lg'></i></a>
+                <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="LinkedIn"><i class='bx bxl-linkedin text-lg'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="GitHub"><i class='bx bxl-github text-lg'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
+</html>

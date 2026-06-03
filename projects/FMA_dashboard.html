@@ -1,71 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>FMA Marketing Analytics</title>
-    <meta name="description"
-        content="Explore the BrightFutures project - a data-driven dashboard to streamline school selection in Southern California. Leveraging web scraping, cloud data warehousing, and interactive visualizations.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMA Marketing Analytics Dashboard — PJ Villasista</title>
+    <meta name="description" content="Instagram engagement analytics for the Financial Management Association at CSULB. Python-driven analysis identifying optimal post timing and content types; Tableau dashboard used in sponsorship pitches that secured $8,000 in funding.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link href="../assets/css/project_styles.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
 </head>
-
 <body class="bg-gray-900 text-white font-sans">
     <div id="navbar-placeholder"></div>
     <main class="pt-20 px-4">
         <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
-            <h1 class="text-4xl font-bold mb-4">FMA Analytics Dashboard</h1>
-            <p class="mb-4">This project enhanced the Instagram strategy for the Financial Management Association by
-                analyzing engagement data, identifying key trends, and developing a targeted content strategy.</p>
+            <h1 class="text-4xl font-bold mb-2">FMA Marketing Analytics Dashboard</h1>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Tableau</span>
+            </div>
+            <p class="mb-4">Instagram engagement analysis for the Financial Management Association at CSULB. Identified which content drove engagement, when to post, and what the data showed sponsors — contributing to $8,000 in funding, 50% event attendance lift, and 25% membership growth.</p>
 
             <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
-                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs"
-                    data-tabs-toggle="#project-tabs-content" role="tablist">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
                     <li class="mr-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-tab"
-                            data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard"
-                            aria-selected="true">Dashboard</button>
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
                     </li>
                     <li class="mr-2" role="presentation">
-                        <button
-                            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                            id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab"
-                            aria-controls="about-project" aria-selected="false">About the Project</button>
-                    </li>
-                    <li class="mr-2" role="presentation">
-                        <button
-                            class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
-                            id="demo-tab" data-tabs-target="#demo" type="button" role="tab" aria-controls="demo"
-                            aria-selected="false">Demo</button>
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab" aria-controls="about-project" aria-selected="false">About the Project</button>
                     </li>
                 </ul>
             </div>
 
             <div id="project-tabs-content">
-                <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel"
-                    aria-labelledby="dashboard-tab">
+                <!-- Dashboard -->
+                <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                     <div class="viz-wrapper">
                         <div class="viz-container">
-                            <iframe
-                                src="https://public.tableau.com/views/FMAPublicRelationsExecutiveDashboard/FMAPublicRelationsDashboard?:showVizHome=no&:embed=true"
-                                width="100%" height="100%"></iframe>
+                            <iframe src="https://public.tableau.com/views/FMAPublicRelationsExecutiveDashboard/FMAPublicRelationsDashboard?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
                         </div>
                     </div>
                 </div>
-                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel"
-                    aria-labelledby="about-project-tab">
 
-                </div>
-                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel"
-                    aria-labelledby="demo-tab">
+                <!-- About the Project -->
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
+                    <h2 class="text-2xl font-bold mb-3">The Challenge</h2>
+                    <p class="mb-4">FMA's Instagram posts went out without any data-driven strategy — no analysis of which post types drove follows vs. saves vs. comments, no insight into optimal posting windows, and no structured evidence to bring to sponsor conversations. Leadership needed both an internal tool for the social media team and a polished dashboard to show sponsors that the org had reach worth investing in.</p>
 
+                    <h2 class="text-2xl font-bold mb-3">The Approach</h2>
+                    <div class="space-y-3 mb-4 pl-4">
+                        <p><strong>1. Data Collection:</strong> Exported Instagram Insights data covering post-level engagement metrics — likes, comments, saves, reach, impressions, and profile visits per post — across several months of activity.</p>
+                        <p><strong>2. Python Analysis:</strong> Used Python and Pandas to clean the export, parse post metadata (type, caption, hashtags, day/time), and compute engagement rate per post. Analyzed distributions by content type (photo vs. reel vs. carousel) and by day-of-week and hour-of-day posting windows.</p>
+                        <p><strong>3. Identifying Patterns:</strong> Carousel posts drove 2–3x the save rate of single-image posts. Tuesday and Thursday evening posts consistently outperformed Monday morning posts on reach. Hashtag clusters tied to finance recruiting performed better than generic #CSULB tags.</p>
+                        <p><strong>4. Tableau KPI Dashboard:</strong> Built an executive-facing dashboard showing follower growth over time, engagement rate trends, top-performing posts, and content-type breakdown — designed to be readable by sponsors with no analytics background.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mb-3">The Outcome</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <p class="text-2xl font-bold text-cyan-400">$8K</p>
+                            <p class="text-sm text-gray-400">sponsorship funding secured</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <p class="text-2xl font-bold text-cyan-400">+50%</p>
+                            <p class="text-sm text-gray-400">event attendance lift</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <p class="text-2xl font-bold text-cyan-400">+25%</p>
+                            <p class="text-sm text-gray-400">membership growth</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg text-center">
+                            <p class="text-2xl font-bold text-cyan-400">+20%</p>
+                            <p class="text-sm text-gray-400">campaign conversion lift</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">The sponsorship dashboard gave external partners a data-backed picture of FMA's reach and member engagement, making the funding ask a straightforward conversation rather than a pitch on faith.</p>
+
+                    <h2 class="text-2xl font-bold mb-3 mt-6">Technologies Used</h2>
+                    <ul class="list-disc list-inside pl-4 space-y-1 text-gray-300">
+                        <li><strong>Python (Pandas)</strong> — engagement data cleaning, content-type analysis, posting-window analysis</li>
+                        <li><strong>Excel</strong> — raw data export handling and intermediate calculations</li>
+                        <li><strong>Tableau</strong> — KPI dashboard for leadership and sponsorship presentations</li>
+                    </ul>
                 </div>
             </div>
+        </div>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="/assets/js/app.js"></script>
-</body>
 
+    <footer class="bg-gray-800 border-t border-gray-700 py-6 mt-8">
+        <div class="container mx-auto px-4 flex flex-wrap items-center justify-between text-gray-400 text-sm">
+            <a href="/index.html" class="hover:text-cyan-400">&larr; Back to Portfolio</a>
+            <div class="flex gap-4 mt-2 md:mt-0">
+                <a href="mailto:pjvillasista@gmail.com" class="hover:text-cyan-400" aria-label="Email"><i class='bx bx-envelope text-lg'></i></a>
+                <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="LinkedIn"><i class='bx bxl-linkedin text-lg'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="GitHub"><i class='bx bxl-github text-lg'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
 </html>

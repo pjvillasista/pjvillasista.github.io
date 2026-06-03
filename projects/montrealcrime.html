@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Montreal Crime Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montreal Crime Analysis — PJ Villasista</title>
+    <meta name="description" content="Montreal crime data analysis using Python and SQL — cleaning, modeling, and visualizing crime patterns and seasonal trends across neighborhoods for city planning and law enforcement.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link href="../assets/css/project_styles.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <div id="navbar-placeholder"></div>
     <main class="pt-20 px-4">
         <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
-            <h1 class="text-4xl font-bold mb-4">Montreal Crime Dashboard</h1>
-            <p class="mb-4">This project developed an interactive dashboard to analyze crime data in Montreal, providing insights into crime patterns and trends to assist law enforcement and city planning.</p>
-            
+            <h1 class="text-4xl font-bold mb-2">Montreal Crime Analysis</h1>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Tableau</span>
+            </div>
+            <p class="mb-4">An end-to-end analysis of Montreal's open crime dataset — data cleaning in Python, SQL-based pattern queries, and an interactive Tableau dashboard mapping crime hotspots and seasonal trends for city planning and law enforcement use.</p>
+
             <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
                     <li class="mr-2" role="presentation">
@@ -25,12 +32,13 @@
                         <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab" aria-controls="about-project" aria-selected="false">About the Project</button>
                     </li>
                     <li class="mr-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="demo-tab" data-tabs-target="#demo" type="button" role="tab" aria-controls="demo" aria-selected="false">Demo</button>
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="demo-tab" data-tabs-target="#demo" type="button" role="tab" aria-controls="demo" aria-selected="false">Presentation</button>
                     </li>
                 </ul>
             </div>
-            
+
             <div id="project-tabs-content">
+                <!-- Dashboard -->
                 <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
                     <div class="viz-wrapper">
                         <div class="viz-container">
@@ -38,54 +46,55 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- About the Project -->
                 <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
-                    <h2 class="text-3xl font-bold mb-4">The Challenge</h2>
-                    <p class="mb-4">Analyzing crime data in Montreal to identify patterns and trends that can help law enforcement agencies and city planners make informed decisions to improve public safety.</p>
-                    <h2 class="text-3xl font-bold mb-4">The Approach</h2>
-                    <div class="pl-6">
-                        <p class="mb-4">1. <strong>Data Collection:</strong> Gathered crime data from public databases and police reports.</p>
-                        <p class="mb-4">2. <strong>Data Cleaning:</strong> Cleaned and preprocessed the data to ensure accuracy and consistency.</p>
-                        <p class="mb-4">3. <strong>Data Analysis:</strong> Used Python and SQL to analyze the data and identify patterns and trends.</p>
-                        <p class="mb-4">4. <strong>Data Visualization:</strong> Created interactive dashboards using Tableau to visualize the data and make it accessible to stakeholders.</p>
-                        <p class="mb-4">5. <strong>Stakeholder Engagement:</strong> Worked with law enforcement and city planners to ensure the dashboards met their needs and provided actionable insights.</p>
+                    <h2 class="text-2xl font-bold mb-3">The Challenge</h2>
+                    <p class="mb-4">Montreal's open crime data covers multiple years and crime categories, but in raw form it's not actionable — inconsistent formatting, missing values, and no geographic aggregation. The goal was to clean it and surface patterns that could inform where law enforcement should focus and how city planners should allocate resources.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">The Approach</h2>
+                    <div class="space-y-3 mb-4 pl-4">
+                        <p><strong>1. Data Collection:</strong> Downloaded raw crime incident data from Montreal's open data portal, covering multiple crime categories across all city neighborhoods.</p>
+                        <p><strong>2. Data Cleaning (Python):</strong> Standardized date formats, normalized category labels, resolved encoding issues in French-language fields, and dropped or imputed records with missing coordinates.</p>
+                        <p><strong>3. SQL Analysis:</strong> Queried the cleaned dataset to identify: crime frequency by neighborhood, hour-of-day distribution, seasonal trends, and year-over-year change by crime type.</p>
+                        <p><strong>4. Tableau Dashboard:</strong> Built a master dashboard with a geographic heatmap, time-series trend lines, and category breakdowns — filterable by year, crime type, and district.</p>
                     </div>
-                    <h2 class="text-3xl font-bold mb-4">The Outcome</h2>
-                    <p class="mb-4">The project resulted in an interactive dashboard that provides real-time insights into crime patterns and trends in Montreal. Law enforcement agencies and city planners can now make data-driven decisions to improve public safety.</p>
-                    <h2 class="text-3xl font-bold mb-4">Users Can:</h2>
-                    <div class="pl-6">
-                        <ul class="list-disc list-inside mb-4">
-                            <li>Access real-time data on crime patterns and trends in Montreal.</li>
-                            <li>Visualize crime data through interactive dashboards.</li>
-                            <li>Identify hotspots and trends to inform law enforcement strategies.</li>
-                            <li>Make data-driven decisions to improve public safety.</li>
-                        </ul>
-                    </div>
-                    <h2 class="text-3xl font-bold mb-4">Key Features</h2>
-                    <div class="pl-6">
-                        <ul class="list-disc list-inside mb-4">
-                            <li><strong>Real-time Data:</strong> Provides up-to-date information on crime patterns and trends.</li>
-                            <li><strong>Interactive Dashboards:</strong> Allows users to explore the data through interactive visualizations.</li>
-                            <li><strong>Hotspot Identification:</strong> Identifies areas with high crime rates to inform law enforcement strategies.</li>
-                            <li><strong>Stakeholder Engagement:</strong> Ensures the dashboards meet the needs of law enforcement and city planners.</li>
-                        </ul>
-                    </div>
-                    <h2 class="text-3xl font-bold mb-4">Technologies Used</h2>
-                    <ul class="list-disc list-inside mb-4">
-                        <li><strong>Python:</strong> For data cleaning and analysis.</li>
-                        <li><strong>SQL:</strong> For querying and managing the data.</li>
-                        <li><strong>Tableau:</strong> For data visualization.</li>
+
+                    <h2 class="text-2xl font-bold mb-3">The Outcome</h2>
+                    <p class="mb-4">An interactive dashboard that shows crime concentration by neighborhood, peaks by hour and season, and trend direction per category. Law enforcement can identify hotspot patterns; city planners can cross-reference with infrastructure decisions.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">Technologies Used</h2>
+                    <ul class="list-disc list-inside pl-4 space-y-1 text-gray-300">
+                        <li><strong>Python</strong> — data cleaning and preprocessing</li>
+                        <li><strong>SQL</strong> — pattern analysis and aggregation queries</li>
+                        <li><strong>Tableau</strong> — geographic and time-series visualizations</li>
                     </ul>
                 </div>
+
+                <!-- Presentation -->
                 <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="demo" role="tabpanel" aria-labelledby="demo-tab">
                     <div class="viz-wrapper">
                         <div class="viz-container">
-                        <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214266&amp;authkey=!ADFxd1tVHQzwK2g&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+                            <iframe src="https://onedrive.live.com/embed?resid=DAFC04984C5407E5%214266&amp;authkey=!ADFxd1tVHQzwK2g&amp;em=2&amp;wdAr=1.7777777777777777" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <script src="../assets/js/app.js"></script>
+
+    <footer class="bg-gray-800 border-t border-gray-700 py-6 mt-8">
+        <div class="container mx-auto px-4 flex flex-wrap items-center justify-between text-gray-400 text-sm">
+            <a href="/index.html" class="hover:text-cyan-400">&larr; Back to Portfolio</a>
+            <div class="flex gap-4 mt-2 md:mt-0">
+                <a href="mailto:pjvillasista@gmail.com" class="hover:text-cyan-400" aria-label="Email"><i class='bx bx-envelope text-lg'></i></a>
+                <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="LinkedIn"><i class='bx bxl-linkedin text-lg'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="GitHub"><i class='bx bxl-github text-lg'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>

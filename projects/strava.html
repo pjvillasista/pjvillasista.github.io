@@ -2,27 +2,86 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Strava Run Analytics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strava Run Analytics — PJ Villasista</title>
+    <meta name="description" content="Personal marathon prep analytics: Strava API data pipeline in Python, second-by-second pace and elevation processing, and a Tableau dashboard for tracking training progress.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Inconsolata:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link href="../assets/css/project_styles.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-900 text-white font-sans">
     <div id="navbar-placeholder"></div>
     <main class="pt-20 px-4">
-        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg">
-            <h1 class="text-4xl font-bold mb-4">Strava Run Analytics</h1>
-            <p class="mb-4">This project analyzes running trends to prepare for a marathon</p>
-            <div class="viz-wrapper">
-                <div class="viz-container">
-                    <iframe src="https://public.tableau.com/views/StravaUserRunData/Dashboard1?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
+        <div class="container mx-auto bg-gray-800 p-8 rounded-lg shadow-lg mt-8">
+            <h1 class="text-4xl font-bold mb-2">Strava Run Analytics</h1>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Strava API</span>
+                <span class="skill-tag">Tableau</span>
+            </div>
+            <p class="mb-4">A personal training analytics tool built on my own Strava data. The Strava app shows high-level summaries — this goes deeper: second-by-second pace zones, elevation profiles, and run-over-run trends tracked across a full marathon training block.</p>
+
+            <div class="tabs mb-4 border-b border-gray-200 dark:border-gray-700">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="project-tabs" data-tabs-toggle="#project-tabs-content" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="true">Dashboard</button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="about-project-tab" data-tabs-target="#about-project" type="button" role="tab" aria-controls="about-project" aria-selected="false">About the Project</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="project-tabs-content">
+                <!-- Dashboard -->
+                <div class="tab-content p-4 rounded-lg bg-gray-900 text-white" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                    <div class="viz-wrapper">
+                        <div class="viz-container">
+                            <iframe src="https://public.tableau.com/views/StravaUserRunData/Dashboard1?:showVizHome=no&:embed=true" width="100%" height="100%"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About the Project -->
+                <div class="tab-content hidden p-4 rounded-lg bg-gray-900 text-white" id="about-project" role="tabpanel" aria-labelledby="about-project-tab">
+                    <h2 class="text-2xl font-bold mb-3">The Challenge</h2>
+                    <p class="mb-4">Training for a marathon requires understanding more than total miles logged. The Strava mobile app shows aggregate stats, but doesn't let you drill into how pace varied across a run's elevation profile, or compare training load week-over-week at a granular level. The goal was to pull the raw data and build my own analysis layer on top of it.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">The Approach</h2>
+                    <div class="space-y-3 mb-4 pl-4">
+                        <p><strong>1. Strava API Integration:</strong> Authenticated with the Strava OAuth 2.0 API and pulled activity streams — the raw, second-by-second data points for every run: GPS coordinates, pace, altitude, heart rate, and cadence.</p>
+                        <p><strong>2. Python Processing:</strong> Used Python and Pandas to parse the nested JSON activity streams, compute derived fields (pace zones, elevation gain per segment, average cadence per mile), and flatten to a tabular format Tableau can consume.</p>
+                        <p><strong>3. Tableau Dashboard:</strong> Built views for: (a) overall training volume over time — weekly mileage and long run trends, (b) per-run elevation profile overlaid with pace, and (c) a map view showing GPS tracks colored by pace zone.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mb-3">What I Learned</h2>
+                    <p class="mb-4">The elevation-vs-pace overlay immediately showed that my pace was inconsistent on flat sections — I was varying pace by more than expected independently of gradient. That informed adjusting training to focus on steady-state effort rather than targeting a pace number.</p>
+
+                    <h2 class="text-2xl font-bold mb-3">Technologies Used</h2>
+                    <ul class="list-disc list-inside pl-4 space-y-1 text-gray-300">
+                        <li><strong>Python (Pandas, Requests)</strong> — API calls and data processing</li>
+                        <li><strong>Strava API</strong> — second-by-second activity streams</li>
+                        <li><strong>Tableau</strong> — training volume, elevation, pace zone, and map visualizations</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </main>
-    <script src="../assets/js/app.js"></script>
+
+    <footer class="bg-gray-800 border-t border-gray-700 py-6 mt-8">
+        <div class="container mx-auto px-4 flex flex-wrap items-center justify-between text-gray-400 text-sm">
+            <a href="/index.html" class="hover:text-cyan-400">&larr; Back to Portfolio</a>
+            <div class="flex gap-4 mt-2 md:mt-0">
+                <a href="mailto:pjvillasista@gmail.com" class="hover:text-cyan-400" aria-label="Email"><i class='bx bx-envelope text-lg'></i></a>
+                <a href="https://www.linkedin.com/in/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="LinkedIn"><i class='bx bxl-linkedin text-lg'></i></a>
+                <a href="https://github.com/pjvillasista" target="_blank" class="hover:text-cyan-400" aria-label="GitHub"><i class='bx bxl-github text-lg'></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
 </html>
